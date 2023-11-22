@@ -1,0 +1,164 @@
+.top-header__navbar-item:hover .header__notify {
+    display: block;
+}
+
+.top-header__navbar-item--link {
+    cursor: pointer;
+}
+
+.top-header__navbar-item:hover .top-header__navbar-user-menu {
+    display: block;
+}
+
+.navigation-nav__link {
+    cursor: pointer;
+}
+
+.navigation-nav__item-folder:hover .navigation-nav__category {
+    display: none;
+}
+
+/* BREADCRUMB */
+#breadcrumb {
+    position: relative;
+    width: 100%;
+    z-index: 2;
+    display: block;
+
+}
+
+.breadcrumb-category {
+    display: block;
+    padding-bottom: 8px;
+    position: relative;
+
+}
+
+.breadcrumb-list {
+    display: flex;
+    max-width: 100%;
+    overflow-x: hidden ;
+}
+
+.breadcrumb-item {
+    flex-shrink: 0;
+    margin-right: 10px;
+    margin-top: 10px;
+    list-style: none;
+}
+
+.breadcrumb-link {
+    text-decoration: none;
+    color: #20090950;
+    font-size: 2.2rem;
+    line-height: 2rem;
+    text-align: center;
+    width: 110px;
+    height: 40px;
+    display: block;
+    width: 100%;
+    padding: 10px 6px;
+}
+.slick-dots{
+    display: none !important;
+}
+.next{
+    right: -50px;
+   color: black;
+}
+.prev{
+    left: -50px;
+    color: black;
+}
+.next:hover,
+.prev:hover{
+    color: #fff;
+   
+}
+/* BREADCRUMB */
+/* UU DAi */
+.product-title {
+    margin-bottom: 16px;
+    margin-top: 48px;
+}
+.product-item {
+    box-shadow: 0 1px 6px 2px rgba(0, 0, 0, 0.1);
+    padding-top: 16px;
+    margin: 0 15px 24px ;
+    border-radius: 3px;
+}   
+
+
+.product-link__sanpham {
+    box-shadow: none;
+    margin-bottom: 0;
+    border-radius: 0;
+    height: 320px;
+    display: block;
+}
+
+.product-info {
+    display: block;
+    cursor: default;
+    margin-bottom: 8px;
+}
+
+.product-info__title {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.product-info__detail {
+    font-weight: 300;
+    letter-spacing: 0.5px;
+    font-size: 1.2rem;
+}
+
+.product-buy {
+    text-decoration: none;
+    display: flex;
+    justify-content: center;
+    font-size: 1.8rem;
+    background-color: #766f6f94;
+    color: var( --text-color_white);
+    padding: 8px 16px;
+    margin-bottom: 16px;
+    border-radius: 20px;
+    user-select: none;
+    box-shadow: 0 1px 3px 2px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+}
+.product-buy:hover{
+    background-color: #86818194;
+}
+    /* Sản phẩm  */
+    #UuDai,
+    #MonMoi,
+    #Combo1Nguoi,
+    #ComboNhom,
+    #GaRanGaQuay,
+    #BurgerComMiY,
+    #ThucAnNhe,
+    #ThucUong_TrangMieng{
+        display: block  ;
+    }
+#footer{
+    margin-top: 32px;
+}
+
+.modalProduct{
+    position: fixed;
+    top: 0;
+    right: 0;
+    left: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0 , 0.5);   
+    align-items: center;
+    justify-content: center;
+    display: none;
+    z-index: 99;
+}
+.modalProduct.open {
+    display: block;
+}

@@ -1,0 +1,41 @@
+
+.khungForm h2{
+    font-size: 30px;
+    font-weight: 300;
+    margin: 16px 8px;
+    border-bottom: 1px solid #ccc;
+    padding-bottom: 20px;
+    color: red;
+}
+.temporaryAccount{
+    display: flex;
+}
+.form-group{
+    display: inline-block;
+    margin-left: 100px;
+    margin-top: 40px;
+}
+.form-group h4 {
+    font-size: 32px;
+}
+.form-group span , #password , #name {
+    margin-left: 100px;
+    font-size: 24px;
+    display: block;
+    margin-bottom: 12px;
+}
+#name ,
+#password {
+    border: none;
+}
+.passwordChange{
+    display: flex;
+}
+.passwordChange span{
+    font-size: 16px;
+    color: blue;
+    cursor: pointer;
+}
+.passwordChange span:hover{
+    color: rgba(0, 0, 255, 0.665);
+}

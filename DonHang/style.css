@@ -1,0 +1,50 @@
+
+/*SECTION*/
+.container .bill__DonHang h2 {
+    font-size: 22pt;
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+.container .bill__DonHang .content__Donhang .billContent__Donhang {
+    border: 1px solid rgb(247, 238, 240);
+    background-color: rgb(247, 238, 240);
+    border-radius: 10px;
+    margin: 10px;
+    display: flex;
+}
+
+
+.container .bill__DonHang .content__Donhang .billContent__Donhang div:nth-child(1) {
+    width: 40%;
+    text-align: center;
+}
+
+.container .bill__DonHang .content__Donhang .billContent__Donhang div {
+    width: 20%;
+    text-align: center;
+    font-size: 12pt;
+    font-weight: 400;
+    margin: 10px;
+}
+
+.container .bill__DonHang .list-bill__Donhang{
+    display: flex;
+}
+
+.container .bill__DonHang .list-bill__Donhang div:nth-child(1) {
+    width: 40%;
+    text-align: center;
+}
+
+.container .bill__DonHang .list-bill__Donhang div {
+    width: 20%;
+    text-align: center;
+    font-size: 16pt;
+    margin-bottom: 5px;
+}
+/*SECTION*/
+
+
+
+

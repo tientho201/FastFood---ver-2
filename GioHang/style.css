@@ -1,0 +1,250 @@
+
+.thongtindh{
+    background-color:rgb(247, 238, 240);
+    font-family:'Times New Roman', Times, serif;
+    font-size: 20px;
+    font-weight: bold;
+    height: 50px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.sanpham{
+    padding: 0px 0px 0px 200px;
+    width: 55%;
+    color: black;
+    list-style: none; 
+   
+}
+
+.thongtinsp{
+    width: 45%;
+    display: flex;
+    list-style: none;
+}
+
+.textthongtinsp1{
+    width: 30.3%;
+    color: gray;
+    padding: 0px 0px 0px 30px;
+    
+}
+.textthongtinsp2{
+    width: 30.3%;
+    color: gray;
+    padding: 0px 0px 0px 30px;
+    
+    
+}
+.textthongtinsp3{
+    width: 30.3%;
+    color: gray;
+    text-align: center;
+    
+}
+
+.content{
+    z-index: 1;
+    margin-top: 5px;
+}
+.spdachon{
+    display: flex;
+    justify-content:space-around;
+    margin-top: 10px;
+    background-color:rgb(247, 238, 240);
+    display: flex;
+    list-style: none;
+}
+
+
+.chonmua input{ 
+    margin: 60px -40px 0px 0px;
+    width: 25px;
+    height: 25px;
+    
+  
+}
+
+.thongtinsp{
+    display: flex;
+    line-height: 10px;  
+}
+.anhsp{
+    width: 200px;
+    height: 150px;
+}
+.tensp{
+    display: flex;
+    margin: auto;
+    margin-left:   20px;
+    color: black;
+    text-decoration: none;
+    font-size: 20px;
+    font-weight: bold;
+   line-height: 100px;
+   
+}
+
+ 
+.dongia {
+    text-align: center;
+    width: 15%;
+    margin-top: 60px;
+    color: red;
+    font-size: 20px;
+    font-weight: bold;
+    
+}
+
+.soluong{ 
+    width: 15%;
+    margin-top: 50px;  
+    display: flex;
+}
+.soluong button{
+    width: 30px;
+    height: 30px;
+}
+
+.soluong input{
+    font-weight: bold;
+    text-align: center;
+    font-size: 15px;
+    width: 40px;
+    height: 30px;
+}
+
+.thaotac{
+    width: 10%;
+}
+.thaotac button{
+    
+    margin: 50px 50px 0px 0px;
+    border: 2px solid black;
+    border-radius: 3px;
+    background-color: white;
+    font-weight: bold;
+    width: 30px;
+    height: 30px;
+    
+}
+
+
+.Muahang{
+    width: 100%;
+    position: relative;
+    display: flex;
+    justify-content: space-between;
+    background-color:rgb(247, 238, 240);
+    text-decoration: none;
+    margin-top: 10px;
+    bottom: 0;
+}
+
+
+.left{
+    font-size: 15px;
+    display: flex;
+    list-style: none;  
+    justify-content:space-around; 
+}
+
+ 
+.chonall{ 
+    margin: 30px 0px 0px 30px;  
+    width: 25px;
+    height: 25px;
+}
+
+.all{
+    margin: 35px 0px 0px 10px;  
+}
+
+.left button{
+    background-color: white;
+    border-radius: 3px;
+    width: 30px;
+    height: 30px;
+    margin: 25px 0px 0px 30px;
+}
+
+.right{
+    display: flex;
+    list-style: none;
+}
+
+.sotien{
+    font-size: 20px;
+    margin: 50px 30px 10px 0px;
+}
+.tongtien{
+    font-weight: bold;
+    font-size: 20px;
+    margin: 50px 10px 10px 0px;
+}
+
+.muahang {
+    background-color: red;
+    font-weight: bold;
+    font-size: 20px;
+    margin: 30px 30px 10px 20px ;
+    width: 150px;
+    height: 40px;
+    cursor: pointer;
+}
+
+
+.anhbill{
+    width: 150px;
+    height: 100px;
+    margin-left: 50px;
+}
+
+
+table{
+    width: 100%;
+    font-size: 20px;
+    border: 1px solid black;
+      
+}
+
+
+th{  
+    width: 20%;
+    height: 50px ;   
+    text-align: center;
+}
+
+.soluongspbill,.giatienspbill , .nhapInfo{
+    text-align: center;
+}
+.thanhtoan{
+    background-color: red;
+    width: 80px;
+    height: 30px;
+}
+.tenspbill{
+    font-weight: 600;
+}
+
+.nhapInfo div{
+    cursor: pointer;   
+    display: flex;
+    justify-content: center;
+    padding: 8px;
+}
+.tableInfo th{
+    width: 20%;
+    height: 50px;
+    text-align: center;
+}
+
+.thongtinnguoimua th{
+   font-weight: 400;
+   cursor: pointer;
+}
+.NhapSDT{
+    border: 1px solid #000;
+}
+

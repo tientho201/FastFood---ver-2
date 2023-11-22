@@ -1,0 +1,23 @@
+/* chưa có sản phẩm display img với mess (item none) */
+.header__cart-no-cart--img {
+    width: 40%;
+    display: flex;
+    /*Display : flex*/
+    margin: 32px auto 8px;
+    object-fit: contain;
+}
+
+.header__cart-list-no-cart-mes {
+    display: block;
+    /*display: block*/
+    font-size: 1.4rem;
+    margin-top: 12px;
+    font-weight: 500;
+    color: var(--text-color_black);
+}
+
+.header__cart-item {
+    display: none;
+    /*display : flex*/
+    cursor: pointer;
+}

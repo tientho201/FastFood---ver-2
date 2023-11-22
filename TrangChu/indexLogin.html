@@ -1,0 +1,772 @@
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>FastFood</title>
+        <!-- Thêm icon trên thanh trình duyệt -->
+        <link rel="icon" href="../assets/img/logo/Ionic-Ionicons-Fast-food-sharp.512.png" type="image/x-icon" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/css/all.min.css"
+            integrity="sha512-z3gLpd7yknf1YoNbCzqRKc4qyor8gaKU1qmn+CShxbuBusANI9QpRohGBreCFkKxLhei6S9CQXFEbbKuqLg0DA=="
+            crossorigin="anonymous" referrerpolicy="no-referrer" />
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick.css" />
+        <!-- Add the slick-theme.css if you want default styling -->
+        <link rel="stylesheet" type="text/css" href="//cdn.jsdelivr.net/npm/slick-carousel@1.8.1/slick/slick-theme.css">
+        <link rel="stylesheet" href="../assets/css/gird.css">
+        <link rel="stylesheet" href="../assets/css/styles.css">
+        <link rel="stylesheet" href="../assets/css/base.css">
+        <link rel="stylesheet" href="../assets/css/responsive.css">
+        <link rel="stylesheet" href="../assets/font/themify-icons-font/themify-icons/themify-icons.css">
+        <!-- CSS danh sách sản phẩm -->
+        <link rel="stylesheet" href="../DanhMucSanPham/style.css">
+        <link rel="stylesheet" href="../DanhMucSanPham/responsive.css">
+        <!-- CSS Đơn Hàng -->
+        <link rel="stylesheet" href="../DonHang/style.css">
+        <!-- CSS Thông tin các nhân -->
+        <link rel="stylesheet" href="../ThongTinCaNhan/style.css">
+        <!-- CSS Giỏ hàng -->
+        <link rel="stylesheet" href="../GioHang/style.css">
+    </head>
+
+    <body>
+        <div id="main">
+            <!-- HEADER -->
+            <header>
+                <!-- TopHeader -->
+                <div class="top-header">
+                    <div class="container">
+                        <nav class="top-header__navbar row-cols-1 row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+                            <ul class="top-header__navbar-list">
+                                <li class="top-header__navbar-item">
+                                    <a href="tel:+84384475805" class="top-header__navbar-item--link">
+                                        <i class="top-header__navbar-item--icon fa fa-phone"></i>
+                                        <span class="hide-on-mobile">+84384475805 </span>
+                                    </a>
+                                </li>
+                                <li class="top-header__navbar-item">
+                                    <a href="mailto:email@gmail.com" class="top-header__navbar-item--link"
+                                        target="_blank">
+                                        <i class="top-header__navbar-item--icon fa-solid fa-envelope"></i>
+                                        <span class="hide-on-mobile"> email@gmail.com </span>
+                                    </a>
+                                </li>
+                                <li class="top-header__navbar-item">
+                                    <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599224,106.6796834,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1b7c3ed289:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583!16s%2Fm%2F02qvnkv?hl=vi-VN&entry=ttu"
+                                        class="top-header__navbar-item--link" target="_blank">
+                                        <i class="top-header__navbar-item--icon fa-solid fa-location-dot"></i>
+                                        <span class="hide-on-mobile"> 273 Đ.An Dương Vương </span>
+                                    </a>
+                                </li>
+                            </ul>
+                            <ul class="top-header__navbar-list">
+                                <li class="top-header__navbar-item">
+                                    <span class="top-header__navbar-item--notify">
+                                        <i class="top-header__navbar-item--icon fa-regular fa-bell">
+                                        </i>
+                                        <span class="hide-on-mobile top-header__navbar-letter"> Thông báo </span>
+                                    </span>
+                                    <div class="header__notify">
+                                        <div class="header__notify-header">
+                                            <h3>Thông báo mới nhận</h3>
+                                        </div>
+                                        <ul class="header__notify-list">
+                                            <!-- <li class="header__notify-item header__notify-item--readed">
+                                                <a href="" class="header__notify-link">
+                                                    <img src="https://nhatluan.com/wp-content/uploads/2018/12/Shopee-logo.jpg"
+                                                        class="header__notify-img" alt="">
+                                                    <div class="header__notify-info">
+                                                        <span class="header__notify-name">Tui tên là Nguyễn Tiến
+                                                            Thọ</span>
+                                                        <span class="header__notify-descriotion">Tiến Thọ đẹp
+                                                            trai</span>
+                                                    </div>
+                                                </a>
+                                            </li> -->
+                                        </ul>
+                                        <footer class="header__notify-footer">
+                                            <a href="" class="header__notify-footer--btn">Xem tất cả</a>
+                                        </footer>
+                                    </div>
+                                </li>
+                                <li class="top-header__navbar-item">
+                                    <div class="top-header__navbar-item--link">
+                                        <i class="top-header__navbar-item--icon fa-regular fa-user"></i>
+                                        <span class="hide-on-mobile name-login"> Nguyễn Tiến Thọ </span>
+                                    </div>
+                                    <ul class="top-header__navbar-user-menu">
+                                        <li class="top-header__navbar-user-item top-header__navbar-user-item__account">
+                                            <a>Tài khoản của tôi</a>
+                                        </li>
+                                        <li class="top-header__navbar-user-item top-header__navbar-user-item--admin">
+                                            <a href="../ADMIN/index.html">Trang admin</a>
+                                        </li>
+                                        <li class="top-header__navbar-user-item top-header__navbar-user-item__order">
+                                            <a>Đơn mua</a>
+                                        </li>
+                                        <li class="top-header__navbar-user-item top-header__navbar-user-item-separate">
+                                            <a href="../index.html" class="logout">Đăng xuất</a>
+                                        </li>
+                                    </ul>
+                                </li>
+                            </ul>
+                        </nav>
+                    </div>
+                </div>
+                <!-- TopHeader -->
+                <!-- ContentHeader -->
+                <div class="container">
+                    <div class="content-header row-cols-1 row-cols-lg-1 row-cols-md-1 row-cols-sm-1">
+                        <div class="header-logo">
+                            <a href="./indexLogin.html" class="header-logo__link">
+                                <img src="../assets/img/logo/LOGO-Outline.jpg" alt=""
+                                    class="header-logo__link-img hide-on-mobile">
+                                <img src="../assets/img/logo/LETTER.jpg" class="header-logo__link-img-1 hide" alt="">
+                            </a>
+                        </div>
+                        <label for="mobile-search-chechbox" class="header__mobile-search">
+                            <i class="header__mobile-search-icon fa-solid fa-magnifying-glass"></i>
+                        </label>
+                        <div class="header-search">
+                            <input type="checkbox" hidden id="mobile-search-chechbox" class="header__search-checkbox">
+                            <div class="header-search__input-wrap">
+                                <input type="text" class="header-search__input" placeholder="Tìm kiếm sản phẩm">
+                                <!-- search history -->
+                                <div class="header__search-history">
+                                    <h3 class="header__search-history-heading">Kết quả tìm kiếm</h3>
+                                    <ul class="header__search-history-list">
+                                    </ul>
+                                </div>
+                                <button class="header-search__btn">
+                                    <i class="fa-solid fa-magnifying-glass"></i>
+                                </button>
+                            </div>
+                        </div>
+                        <div class="header-cart">
+                            <div class="header-cart__wrap">
+                                <a href="#" class="header-cart__link">
+                                    <img src="../assets/img/logo/Icons8-Ios7-Ecommerce-Shopping-Bag.512.png" alt=""
+                                        class="header-cart__link-img">
+                                </a>
+                                <!-- NO CART :  header__cart-list--no-cart -->
+                                <div class="header__cart-list">
+                                    <h4 class="header__cart-heading">Sản phẩm đã thêm</h4>
+                                    <img src="../assets/img/logo/Icons8-Ios7-Ecommerce-Shopping-Bag.512.png" alt=""
+                                        class="header__cart-no-cart--img">
+                                    <span class="header__cart-list-no-cart-mes">Chưa có sản phẩm</span>
+                                    <ul class="header__cart-list-item">
+                                        <!-- Cart item -->
+                                    </ul>
+                                    <a
+                                        class="header__cart-view-cart btn btn--primary">Xem giỏ hàng</a>
+                                </div>
+                            </div>
+                        </div>
+                        <label for="menu-mobile__checkbox" class="menu-mobile__list">
+                            <i class="menu-mobile__icon ti-menu"></i>
+                        </label>
+                    </div>
+                </div>
+                <!-- ContentHeader -->
+            </header>
+            <!-- HEADER -->
+            <!-- NAVIGATION -->
+            <input type="checkbox" name="" hidden id="menu-mobile__checkbox" class="tab-menu__checkbox">
+            <div id="navigation">
+                <div class="navigation-menu__top-icon">
+                    <i class="navigation-menu__close ti-close"></i>
+                </div>
+                <img src="../assets/img/logo/LOGO-Outline.jpg" alt="" class="navigation-logo">
+                <div class="container">
+                    <div class="navigation-nav">
+                        <ul class="navigation-nav__list">
+                            <li class="navigation-nav__item ">
+                                <a href="./indexLogin.html"
+                                    class="navigation-nav__link navigation-nav__link-home active">Home</a>
+                            </li>
+                            <li class="navigation-nav__item navigation-nav__item-folder">
+                                <a class="navigation-nav__link navigation-nav__link--no-select"> Danh Mục Sản Phẩm </a>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- NAVIGATION -->
+            <!-- Bao danh mục sản phẩm -->
+            <div id="DanhMucSanPham">
+                <!-- BREADCRUMB -->
+                <div id="breadcrumb">
+                    <div class="container">
+                        <div class="breadcrumb-category">
+                            <ul class="breadcrumb-list">
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link active" href="#UuDai">Ưu Đãi</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#MonMoi">Món Mới</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#Combo1Nguoi">Combo 1 Người</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#ComboNhom">Combo Nhóm</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#GaRanGaQuay">Gà Rán - Gà Quay</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#BurgerComMiY">Burger - Cơm - Mì Ý</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#ThucAnNhe">Thức Ăn Nhẹ</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#ThucUong_TrangMieng">Thức Uống & Tráng Miệng</a>
+                                </li>
+                            </ul>
+                            <div class="breadcrumb-btn">
+                                <a class="breadcrumb-btn__prev prev ti-angle-left" style="display: none;"></a>
+                                <a class="breadcrumb-btn__next next ti-angle-right"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BREADCRUMB -->
+                <!-- SANPHAM -->
+                <div id="sanpham">
+                    <div class="container">
+                        <div id="UuDai">
+                            <h1 class="product-title">ƯU ĐÃI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__UuDai ">
+                            </div>
+                        </div>
+                        <div id="MonMoi">
+                            <h1 class="product-title">MÓN MỚI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__MonMoi">
+                            </div>
+                        </div>
+                        <div id="Combo1Nguoi">
+                            <h1 class="product-title">COMBO 1 NGƯỜI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1  product-list__Combo1Nguoi">
+                            </div>
+                        </div>
+                        <div id="ComboNhom">
+                            <h1 class="product-title">COMBO NHÓM</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ComboNhom ">
+                            </div>
+                        </div>
+                        <div id="GaRanGaQuay">
+                            <h1 class="product-title">GÀ RÁN - GÀ QUAY</h1>
+                            <div
+                                class=" row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__GaRanGaQuay">
+                            </div>
+                        </div>
+                        <div id="BurgerComMiY">
+                            <h1 class="product-title">BURGER - CƠM - MÌ Ý</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__BurgerComMiY">
+                            </div>
+                        </div>
+                        <div id="ThucAnNhe">
+                            <h1 class="product-title">THỨC ĂN NHẸ</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucAnNhe ">
+                            </div>
+                        </div>
+                        <div id="ThucUong_TrangMieng">
+                            <h1 class="product-title">THỨC UỐNG & TRÁNG MIỆNG</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucUong_TrangMieng">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SANPHAM -->
+            </div>
+            <!-- Bao của trang chủ  -->
+            <div id="trangchu">
+                <!-- SILIDER ( hình trượt) -->
+                <div id="slider">
+                    <div class="slideshow-container">
+                        <div class="mySlides fade">
+                            <img src="../assets/img/logo/product-img1.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="../assets/img/logo/product-img2.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="../assets/img/logo/product-img3.jpg" style="width:100%">
+                        </div>
+                        <div class="mySlides fade">
+                            <img src="../assets/img/logo/product-img4.jpg" style="width:100%">
+                        </div>
+                    </div>
+                </div>
+                <!-- SILIDER -->
+                <!-- SECTION -->
+                <div id="section">
+                    <div class="container">
+                        <h3 class="notification-letters">
+                            <span>DANH MỤC SẢN PHẨM</span>
+                        </h3>
+                        <!-- Sản phẩm của danh mục -->
+                        <div
+                            class="product-portfolio row row-cols-xl-4 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-1">
+                            <div class="product-item ">
+                                <a class="product-link" href="#UuDai">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/Uu Dai.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Ưu Đãi</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#MonMoi">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/MON MOI.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Món Mới</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#Combo1Nguoi">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/ComBo1Nguoi.png" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>ComBo 1 Người</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#ComboNhom">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/ComboNhom.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Combo Nhóm</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#GaRaGaQuay">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/GaRanGaQuay.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Gà Rán - Gà Quay</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#BurgerComMiY">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/HonHop.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Burger - Cơm - Mì Ý</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#ThucAnNhe">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/ThucAnNhe.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Thức Ăn Nhẹ</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                            <div class="product-item ">
+                                <a class="product-link" href="#ThucUong_TrangMieng">
+                                    <div class="product-img">
+                                        <img src="../assets/img/Item/TRANG MIENG.jpg" alt="">
+                                    </div>
+                                    <div class="product-info__item">
+                                        <h2>Thức Uống & Tráng Miệng</h2>
+                                        <i class="product-icon fa-solid fa-angle-right"></i>
+                                    </div>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SECTION -->
+            </div>
+            <!-- Bao đơn hàng -->
+            <div id="DonHang" style="display: none;">
+                <div id="section">
+                    <div class="container">
+                        <div class="bill__DonHang">
+                            <h2>Đơn Hàng Đã Đặt</h2>
+                            <div class="list-bill__Donhang">
+                                <div>Sản Phẩm</div>
+                                <div>Giá</div>
+                                <div>Ngày Đặt</div>
+                                <div>Tình Trạng</div>
+                            </div>
+                            <div class="content__Donhang">
+                                <div class="billContent__Donhang">
+                                    <!-- <div>1 x Balenciaga Triple S White size 36; 1 x Gucci LOVED size 36; 1 x Rick Owens SS17 High size 36; 1 x Gucci Sneaker Dirty size 36; 1 x AIR MAX 270 ALL WHITE size 36; 1 x Alpha Bounce Instinct All Black size 36;</div>
+                <div>77.664.000 VND</div>
+                <div>16-11-2023</div>
+                <div>Chưa xử lý</div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SECTION -->
+            </div>
+            <!-- Bao ThongTinCaNhan -->
+            <div id="ThongTinCaNhan" style="display: none;">
+                <div id="section">
+                    <form action="" method="post" id="form">
+                        <div class="container">
+                            <div class="khungForm">
+                                <h2>Hồ sơ của tôi</h2>
+                                <div class="temporaryAccount">
+                                    <!-- <div class="form-group">
+                                <h4>Email</h4>
+                                <h4>Tên</h4>
+                                <h4>Mật Khẩu</h4>
+                            </div>
+                            <div class="form-group">
+                              <span>Nguyễn Tiến Thọ</span>
+                              <span>Nguyễn Tiến Thọ</span>
+                              <div class="passwordChange">
+                                <input type="password" name="password" id="password">
+                                <span>thay đổi</span>
+                              </div>
+                            </div> -->
+                                </div>
+                            </div>
+                        </div>
+                    </form>
+                </div>
+            </div>
+            <!-- Bao Giỏ hàng -->
+            <div id="GioHang" style="display: none;">
+                <div id="section">
+                    <div class="container">
+                        <div class="bill" style="display: none;">
+                            <form action="">
+                                <div>
+                                    <i class="ti-arrow-left"
+                                        style="font-size: 16px; padding: 8px; display: block; cursor: pointer; float: left;"
+                                        onclick="quaylaigiohang()"></i>
+                                </div>
+                                <table>
+                                    <thead>
+                                        <tr>
+                                            <th colspan="2">Thông tin sản phẩm</th>
+                                            <th>Số lương</th>
+                                            <th>Giá</th>
+                                            <th></th>
+                                            <th></th>
+                                        </tr>
+                                    </thead>
+                                    <tbody class="spchonmua">
+                                    </tbody>
+                                    <tbody class="tableInfo">
+                                        <tr>
+                                            <th>Họ Và Tên</th>
+                                            <th>SĐT</th>
+                                            <th colspan="2">Địa Chỉ</th>
+                                            <th>Trạng Thái</th>
+                                        </tr>
+                                    </tbody>
+                                    <tbody class="thongtinnguoimua">
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th colspan="2"></th>
+                                            <th style="color: #928f8f; font-weight: 400;">Chờ Xác Nhận</th>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th style="font-weight: 300; color: red;"><span id="chuaNhapSDT"></span></th>
+                                            <th colspan="2" style="font-weight: 300; color: red;"><span
+                                                    id="chuaNhapAddress"></th>
+                                            <th></th>
+                                        </tr>
+                                    </tbody>
+                                    <tbody>
+                                        <tr>
+                                            <th></th>
+                                            <th></th>
+                                            <th>Tổng tiền</th>
+                                            <th class="tienthanhtoan"></th>
+                                            <th><button class="thanhtoan" style="cursor: pointer;">Thanh toán</button></th>
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </form>
+                        </div>
+                    </div>
+                    <div class="giohang">
+                        <div class="container">
+                            <div class="thongtindh">
+                                <ul class="sanpham">
+                                    <li>Sản phẩm</li>
+                                </ul>
+                                <ul class="thongtinsp">
+                                    <li class="textthongtinsp1">Đơn giá</li>
+                                    <li class="textthongtinsp2">Số lượng</li>
+                                    <li class="textthongtinsp3">Thao tác</li>
+                                </ul>
+                            </div>
+                            <div class="content">
+                            </div>
+                            <div class="Muahang">
+                                <ul class="left">
+                                    <li> <input type="checkbox" class="chonall"></li>
+                                    <li class="all">Chọn tất cả</li>
+                                    <li><button value="" class="xoaALL" onclick="deleteall()">Xóa</button></li>
+                                </ul>
+                                <ul class="right">
+                                    <li class="tongtien">Tổng số tiền:</li>
+                                    <li class="sotien">0.000 đ</li>
+                                    <li><button class="muahang" onclick="muahang()">Mua hàng</button></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- FOOTER -->
+            <footer id="footer">
+                <div class="container">
+                    <div class="footer-elemnt row row-cols-xl-4 row-cols-lq-4  row-cols-md-2 row-cols-sm-2 row-cols-1">
+                        <div class="footer-block">
+                            <h3 class="footer-heading">DANH MỤC SẢN PHẨM</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#UuDai" class="footer-link">Ưu Đãi</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#MonMoi" class="footer-link">Món Mới</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#Combo1Nguoi" class="footer-link"> Combo 1
+                                        Người</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#ComboNhom" class="footer-link">Combo
+                                        Nhóm</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#GaRaGaQuay" class="footer-link">Gà Rán -
+                                        Gà Quay</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#BurgerComMiY" class="footer-link">Burger
+                                        - Cơm - Mì Ý</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#ThucAnNhe" class="footer-link">Thức Ăn
+                                        Nhẹ</a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="../DanhMucSanPham/indexLogin.html#ThucUong_TrangMieng"
+                                        class="footer-link">Thức Uống & Tráng Miệng</a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-block">
+                            <h3 class="footer-heading">ABOUT US</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="tel:+84384475805" class="footer-link">
+                                        <i class="footer-icon fa fa-phone"></i>
+                                        <span>+84384475805 </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="mailto:email@gmail.com" class="footer-link" target="_blank">
+                                        <i class="footer-icon fa-solid fa-envelope"></i>
+                                        <span> email@gmail.com </span>
+                                    </a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="https://www.google.com/maps/place/Tr%C6%B0%E1%BB%9Dng+%C4%90%E1%BA%A1i+h%E1%BB%8Dc+S%C3%A0i+G%C3%B2n/@10.7599224,106.6796834,17z/data=!3m1!4b1!4m6!3m5!1s0x31752f1b7c3ed289:0xa06651894598e488!8m2!3d10.7599171!4d106.6822583!16s%2Fm%2F02qvnkv?hl=vi-VN&entry=ttu"
+                                        class="footer-link" target="_blank">
+                                        <i class=" footer-icon fa-solid fa-location-dot"></i>
+                                        <span> 273 Đ.An Dương Vương </span>
+                                    </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-block">
+                            <h3 class="footer-heading">THEO DÕI</h3>
+                            <ul class="footer-list">
+                                <li class="footer-item">
+                                    <a href="" class="footer-link">
+                                        <i class="footer-icon__fb fa-brands fa-facebook"></i> Facebook </a>
+                                </li>
+                                <li class="footer-tem">
+                                    <a href="" class="footer-link">
+                                        <i class="footer-icon__ins fa-brands fa-instagram"></i> Instagram </a>
+                                </li>
+                                <li class="footer-item">
+                                    <a href="" class="footer-link">
+                                        <i class="footer-icon__ld fa-brands fa-linkedin"></i> Linkedin </a>
+                                </li>
+                            </ul>
+                        </div>
+                        <div class="footer-block">
+                            <h3 class="footer-heading">VÀO CỬA HÀNG TRÊN ỨNG DỤNG</h3>
+                            <div class="footer__download">
+                                <a href="" class="footer__download-app-link">
+                                    <img src="../assets/img/logo/ch_play.png" alt="" class="footer__download-app-img">
+                                </a>
+                                <a href="" class="footer__download-app-link">
+                                    <img src="../assets/img/logo/app_store.png" alt="" class="footer__download-app-img">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="footer-info">
+                    <span>COPYRIGHT 2023 </span>
+                    <i class="footer-info__icon ti-face-smile"></i>
+                    <span>nhóm 12</span>
+                </div>
+            </footer>
+            <!-- FOOTER -->
+        </div>
+        <!-- Modal CHI TIẾT SẢN PHẨM -->
+        <div class="modalProduct">
+            <div class="khungchitietsanpham">
+                <div class="tam">
+                    <div class="chitietanh">
+                        <img src="" alt="" class="anhchitietsanpham">
+                    </div>
+                    <div class="thongtinchitietsanpham">
+                        <h1 class="titleDetail"></h1>
+                        <div class="priceDetail">
+                            <div class="pname">Giá bán:</div>
+                            <div class="pnews"></div>
+                        </div>
+                        <div class="infoProduct">
+                            <p></p>
+                        </div>
+                        <div id="nutthem">
+                            <button class="themDetail">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- jQuery Plugins -->
+        <!-- Thêm thư viện jQuery trước -->
+        <script src="../src/jquery.min.js"></script>
+        <!-- Thêm tệp JavaScript của Slick -->
+        <script src="../src/slick.min.js"></script>
+        <script type="text/javascript" src="../src/SmoothScroll.js"></script>
+        <!-- Thêm tệp JavaScript của Slick -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <!-- Include Axios library from CDN -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- API -->
+        <script src="../ADMIN/src/controll/callApiProduct.js"></script>
+        <script src="../ADMIN/src/controll/callApiNotify.js"></script>
+        <script src="../ADMIN/src/controll/callApiAccount.js"></script>
+        <script src="../ADMIN/src/controll/callApiOrder.js"></script>
+        <!-- Tự JS -->
+        <script src="../js/nameLogin.js"></script>
+        <script src="../js/slider.js"> </script>
+        <script src="../js/showNotify.js"></script>
+        <script src="../js/addcart.js"></script>
+        <script src="../js/search_input.js"></script>
+        <!-- Danh mục sản phẩm -->
+        <script src="../DanhMucSanPham/js/sanpham.js"></script>
+        <script src="../DanhMucSanPham/js/showProduct.js"></script>
+        <script src="../DanhMucSanPham/js/ListProductMobile.js"></script>
+        <script src="../DanhMucSanPham/js/select-navigation.js"></script>
+        <script src="../DanhMucSanPham/js/slider.js"></script>
+        <script>
+            var modalProduct = document.querySelector('.modalProduct')
+
+            function hideModalProduct() {
+                modalProduct.classList.remove('open')
+            }
+            modalProduct.addEventListener('click', hideModalProduct);
+            document.querySelector('.khungchitietsanpham').addEventListener('click', function (event) { event.stopPropagation(); })
+        </script>
+        <script>
+            document.querySelector('.navigation-nav__link--no-select').onclick = function () {
+                document.querySelector('#DanhMucSanPham').style.display = 'block'
+                document.querySelector('#trangchu').style.display = 'none'
+                document.querySelector('.navigation-nav__link-home').classList.remove('active');
+                this.classList.add('active')
+                document.querySelector('#DonHang').style.display = 'none'
+                document.querySelector('#ThongTinCaNhan').style.display = 'none'
+                document.querySelector('#GioHang').style.display = 'none'
+            }
+        </script>
+        <!-- Đơn hàng -->
+        <script src="../DonHang/main.js"></script>
+        <script>
+            var OrderAccount = document.querySelector('.top-header__navbar-user-item__order');
+            OrderAccount.onclick = function (e) {
+                document.querySelector('#DanhMucSanPham').style.display = 'none'
+                document.querySelector('#trangchu').style.display = 'none'
+                document.querySelector('.navigation-nav__link-home').classList.remove('active');
+                document.querySelector('.navigation-nav__link--no-select').classList.remove('active');
+                document.querySelector('#DonHang').style.display = 'block'
+                document.querySelector('#ThongTinCaNhan').style.display = 'none'
+                document.querySelector('#GioHang').style.display = 'none'
+            }
+        </script>
+        <!-- Thông tin cá nhân -->
+        <script src="../ThongTinCaNhan/main.js"></script>
+        <script>
+            var ChangeAccount = document.querySelector(".top-header__navbar-user-item__account");
+            ChangeAccount.onclick = function () {
+                document.querySelector('#DanhMucSanPham').style.display = 'none'
+                document.querySelector('#trangchu').style.display = 'none'
+                document.querySelector('.navigation-nav__link-home').classList.remove('active');
+                document.querySelector('.navigation-nav__link--no-select').classList.remove('active');
+                document.querySelector('#ThongTinCaNhan').style.display = 'block'
+                document.querySelector('#DonHang').style.display = 'none'
+                document.querySelector('#GioHang').style.display = 'none'
+            }
+        </script>
+        <!-- Giỏ hàng -->
+        <script src="../GioHang/main.js"></script>
+        <script src="../ADMIN/src/validates/validate.js"></script>
+        <script>
+            var onclickCart = document.querySelector('.header__cart-view-cart');
+            onclickCart.onclick = function(){
+                document.querySelector('#GioHang').style.display = 'block'
+                document.querySelector('#DanhMucSanPham').style.display = 'none'
+                document.querySelector('#trangchu').style.display = 'none'
+                document.querySelector('.navigation-nav__link-home').classList.remove('active');
+                document.querySelector('.navigation-nav__link--no-select').classList.remove('active');
+                document.querySelector('#ThongTinCaNhan').style.display = 'none'
+                document.querySelector('#DonHang').style.display = 'none'
+            }
+        </script>
+    </body>
+
+</html>

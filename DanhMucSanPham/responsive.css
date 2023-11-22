@@ -1,0 +1,347 @@
+
+@media (min-width: 1023px) {
+    #navigation {
+        display: block !important;
+    }
+}
+
+@media (min-width: 740px) and (max-width: 1200px) {
+    .product-item {
+        margin: 0 15px 24px;
+    }
+
+}
+
+@media (min-width: 740px) and (max-width: 770px) {
+    .product-item {
+        margin: 0 12px 24px !important;
+    }
+    
+}
+
+@media (max-width: 1000px) {
+    .product-item {
+        margin: 0 12px 24px;
+    }
+    .next{
+        right: -38px;
+        display: none !important;
+    }
+    .prev{
+        left: -38px;
+    }
+    .product-img>img {
+        min-height: 187px;
+    }
+}
+@media (min-width: 740px) {
+    #UuDai,
+    #MonMoi,
+    #Combo1Nguoi,
+    #ComboNhom,
+    #GaRanGaQuay,
+    #BurgerComMiY,
+    #ThucAnNhe,
+    #ThucUong_TrangMieng{
+        display: block !important ;
+    }
+}
+@media (max-width: 740px) {
+    .product-link{
+        height: auto;
+    }
+
+    @media (min-width: 576px) {
+        .product-item {
+            margin: 0 12px 24px !important;
+        }
+    }
+
+    /* BREADCRUMB */
+    .breadcrumb-link {
+        border-radius: 4px;
+    }
+
+    .breadcrumb-item:nth-last-of-type(3n + 3) .breadcrumb-link {
+        background-color: #87afd8;
+    }
+
+    .breadcrumb-item:nth-last-of-type(3n + 2) .breadcrumb-link {
+        background-color: #76c9bd;
+    }
+
+    .breadcrumb-item:nth-last-of-type(3n + 1) .breadcrumb-link {
+        background-color: #88cf81;
+    }
+
+    #breadcrumb {
+        z-index: 0 !important;
+        position: relative !important;
+        border-top: none !important;
+        top: 0 !important;
+        background-color: #fff !important;
+    }
+
+    .breadcrumb-list {
+        overflow: auto;
+    }
+
+
+    /* BREADCRUMB */
+    @media (max-width: 576px) {
+        .row-cols-1 {
+            width: calc(100%);
+        }
+    }
+
+    .product-item {
+        margin: 0 10px 24px;
+    }
+
+    /* Sản phẩm  */
+    #MonMoi,
+    #Combo1Nguoi,
+    #ComboNhom,
+    #GaRanGaQuay,
+    #BurgerComMiY,
+    #ThucAnNhe,
+    #ThucUong_TrangMieng{
+        display: none ;
+    }
+}
+@media only screen and (max-width: 739px){
+    #breadcrumb{
+        display: block;
+    }
+    .khungchitietsanpham{
+        width: 50%;
+        margin: auto;
+        margin-top: 50px;
+        background-color: #fff;
+        display: block;
+        animation: modalFadeIn ease .5s;
+        align-items: center;
+    }
+    .anhchitietsanpham{
+        width: 100%;
+    }
+    .chitietanh{
+        background-color: rgba(248, 246, 246, 0);
+        padding: 20px;
+        text-align: center;
+        /* box-shadow: 0px 10px 5px 5px #999999; */
+    }
+    .titleDetail{
+      
+        font-size: 20px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #9a3324;
+        font-family: 'Roboto', sans-serif ;
+    }
+    .thongtinchitietsanpham{
+        padding: 50px;
+    }
+    .priceDetail{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400;
+    }
+    .pname{
+        font-size: 16px;
+    }
+    .pnews{
+        margin-left: 30px;
+        font-size: 20px;
+        color: #f0bf4c;
+        text-shadow: 0px 0px 2px #eec25d
+    }
+    .infoProduct{
+        margin-top: 30px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .themDetail{
+        padding: 20px;
+        font-size: 30px;
+        background-color: #eec25d;
+        margin-top: 16px;
+        border-radius: 20px;
+        border: #ee660b;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px 5px yellow;
+    }
+    #nutthem{
+        display: flex;
+        justify-content: center;
+    }
+    .themDetail:hover{
+        background-color: #ee660b;
+        cursor: pointer;
+    }
+    
+}
+@media (min-width: 740px ) and (max-width: 1023px){
+    .khungchitietsanpham{
+        width: 50%;
+        margin: auto;
+        margin-top: 100px;
+        background-color: #fff;
+        display: block;
+        animation: modalFadeIn ease .5s;
+        align-items: center;
+    }
+    .anhchitietsanpham{
+        height: auto;
+        width: 100%;
+    }
+    .chitietanh{
+        background-color: rgba(248, 246, 246, 0);
+        padding: 20px;
+        text-align: center;
+        /* box-shadow: 0px 10px 5px 5px #999999; */
+    }
+    .titleDetail{
+   
+        font-size: 26px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #9a3324;
+        font-family: 'Roboto', sans-serif ;
+    }
+    .thongtinchitietsanpham{
+        padding: 50px;
+    }
+    .priceDetail{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400;
+    }
+    .pname{
+        font-size: 25px;
+    }
+    .pnews{
+        margin-left: 30px;
+        font-size: 30px;
+        color: #f0bf4c;
+        text-shadow: 0px 0px 2px #eec25d
+    }
+    .infoProduct{
+        margin-top: 30px;
+        font-size: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .themDetail{
+        padding: 20px;
+        font-size: 30px;
+        background-color: #eec25d;
+        margin: 40px;
+        border-radius: 20px;
+        border: #ee660b;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px 5px yellow;
+    }
+    #nutthem{
+        display: flex;
+        justify-content: center;
+    }
+    .themDetail:hover{
+        background-color: #ee660b;
+        cursor: pointer;
+    }
+
+}
+@keyframes modalFadeIn {
+    from{
+        opacity: 0;
+        transform: translateY(-200px);
+    }
+    to{
+        opacity: 1s;
+        transform: translateY(0);
+    }
+}
+@media (min-width: 1024px) {
+    .khungchitietsanpham{
+        width: 60%;
+        margin: auto;
+        min-height: 100vh;
+        display: flex;
+        animation: modalFadeIn ease .5s;
+        align-items: center;
+    
+    }
+    .tam{
+        background-color: #fff;
+        display: flex;
+    }
+    .anhchitietsanpham{
+        border-radius: 20px;
+        width: 100%;
+        box-shadow: 0px 10px 5px 2px #999999;
+    }
+    .chitietanh{
+        background-color: rgba(248, 246, 246, 0);
+        padding: 20px;
+        text-align: center;
+        
+        border-radius: 20px;
+        display: flex;
+        align-items: center;
+    }
+    .titleDetail{
+        font-size: 50px;
+        font-weight: 600;
+        text-transform: uppercase;
+        color: #9a3324;
+        font-family: 'Roboto', sans-serif ;
+    }
+    .thongtinchitietsanpham{
+        padding: 50px;
+        
+    }
+    .priceDetail{
+        margin-top: 30px;
+        display: flex;
+        align-items: center;
+        font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+        font-weight: 400;
+    }
+    .pname{
+        font-size: 18px;
+    }
+    .pnews{
+        margin-left: 30px;
+        font-size: 40px;
+        color: #f0bf4c;
+        text-shadow: 0px 0px 2px #eec25d
+    }
+    .infoProduct{
+        margin-top: 30px;
+        font-size: 14px;
+        font-family: Arial, Helvetica, sans-serif;
+    }
+    .themDetail{
+        padding: 20px;
+        font-size: 30px;
+        background-color: #eec25d;
+        margin: 40px;
+        border-radius: 20px;
+        border: #ee660b;
+        font-weight: bold;
+        box-shadow: 0px 0px 10px 5px yellow;
+    }
+    #nutthem{
+        display: flex;
+        justify-content: center;
+    }
+    .themDetail:hover{
+        background-color: #ee660b;
+        cursor: pointer;
+    }
+
+}

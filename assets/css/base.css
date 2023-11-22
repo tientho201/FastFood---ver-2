@@ -1,0 +1,80 @@
+@import "https://fonts.googleapis.com/css?family=Poppins:300,400,500,600,700";
+
+:root{
+    --white-color : #fff ; 
+    --black-color: #000 ; 
+    --primery-color: rgb(238, 75, 43);
+    --top_header-color:#3F2E3E; /*#3f2e3E*/
+    --dark-gray: #25272E;
+    --red-bright: #D80032; 
+    --text-color_black:#000000ce;
+    --text-color_white: #ffffff90;
+}
+
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: inherit;
+}
+html{
+    font-family:  Lucida Bright;
+    box-sizing: border-box;
+    font-size: 62.5%;
+
+}
+
+@keyframes headerNotifyGrowth {
+    from{
+        opacity: 0;
+        transform: scale(0);
+    }
+    to{
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+/* Button style */
+.btn{
+    min-width: 124px;
+    height: 34px;
+    text-decoration: none;
+    border: none;
+    border-radius: 2px;
+    font-size: 1.5rem;
+    padding: 0 12px;
+    outline: none;
+    cursor: pointer;
+    color: var(--text-color);
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+    line-height: 1.6rem;
+
+}
+.btn.btn--size-s{
+    height: 32px;
+    font-size: 12px;
+    padding: 0 8px;
+}
+.btn.btn--normal:hover{
+    background-color: rgba(0,0,0,0.1);
+}
+.btn.btn--primary{
+    background-color: var(--primery-color);
+    color: #fff;
+    
+}
+.btn.btn--disable{
+    color: #949494;
+    cursor: default;
+    background-color: #c3c3c3;
+}
+
+.active{
+    color: var(--red-bright) !important;
+    border-bottom: 3px solid var(--red-bright);
+}
+.active-item{
+    background-color: var(--red-bright);
+}

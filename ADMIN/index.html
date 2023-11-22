@@ -1,0 +1,871 @@
+<!DOCTYPE html>
+<html>
+
+    <head>
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title>FastFood</title>
+        <!-- Thêm icon trên thanh trình duyệt -->
+        <link rel="icon" href="../assets/img/logo/Ionic-Ionicons-Fast-food-sharp.512.png" type="image/x-icon" />
+        <!-- Bootstrap CSS CDN -->
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/css/bootstrap.min.css"
+            integrity="sha384-9gVQ4dYFwwWSjIDZnLEWnxCjeSWFphJiwGPXr1jddIhOegiu1FwO5qRGvFXOdJZ4" crossorigin="anonymous">
+        <!-- Our Custom CSS -->
+        <link rel="stylesheet" href="./css/animate.css">
+        <link rel="stylesheet" href="../assets/css/base.css">
+        <link rel="stylesheet" href="./css/base.css">
+        <link rel="stylesheet" href="css/style.css">
+        <!-- Scrollbar Custom CSS -->
+        <link rel="stylesheet" href="../src/mCustomScrollbar.min.css">
+        <!-- Font Awesome JS -->
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/solid.js"
+            integrity="sha384-tzzSw1/Vo+0N5UhStP3bvwWPq+uvzCMfrN1fEFe+xBmv1C/AtVX5K0uZtmcHitFZ"
+            crossorigin="anonymous"></script>
+        <script defer src="https://use.fontawesome.com/releases/v5.0.13/js/fontawesome.js"
+            integrity="sha384-6OIrr52G08NpOFSZdxxz1xdNSndlD4vdcf/q2myIUVO0VsqaGHJsB0RaBE01VTOY"
+            crossorigin="anonymous"></script>
+    </head>
+
+    <body>
+        <div class="wrapper">
+            <!-- Sidebar  -->
+            <nav id="sidebar">
+                <div id="dismiss">
+                    <i class="fas fa-arrow-left"></i>
+                </div>
+                <div class="sidebar-header__img">
+                    <img src="../assets/img/logo/LOGO-Outline.jpg" alt="" class="sidebar-header__img">
+                </div>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a href="../TrangChu/indexLogin.html">Home</a>
+                    </li>
+                </ul>
+                <ul class="list-unstyled components">
+                    <li>
+                        <a class="menu-item__giohang menu-item active" onclick="open_giohang()">Giỏ Hàng</a>
+                    </li>
+                    <li>
+                        <a class="menu-item__account menu-item" onclick="open_account()">Tài Khoản</a>
+                    </li>
+                    <li>
+                        <a class="menu-item__donhang menu-item" onclick="open_donhang()">Đơn Hàng</a>
+                    </li>
+                    <li>
+                        <a class="menu-item__notify menu-item" onclick="open_productnotify()">Danh Sách Thông Báo</a>
+                    </li>
+                </ul>
+            </nav>
+            <!-- Page Content  -->
+            <div id="content">
+                <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                    <div class="container-fluid">
+                        <button type="button" id="sidebarCollapse" class="btn btn-info">
+                            <i class="fas fa-align-left"></i>
+                            <span>MENU</span>
+                        </button>
+                        <button class="btn btn-dark d-inline-block d-lg-none ml-auto hide " type="button"
+                            data-toggle="collapse" data-target="#navbarSupportedContent"
+                            aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+                            <i class="fas fa-align-justify"></i>
+                        </button>
+                    </div>
+                </nav>
+                <!-- GIO HANG -->
+                <div class="container-fluid container-fluid__total giohang ">
+                    <div class="card text-center ">
+                        <!-- Header -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Sản
+                                        Phẩm</h3>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button class="btn btn-primary font-weight-bold" id="btnThemProduct"
+                                        data-toggle="modal" data-target="#myModalProduct">Thêm Sản Phẩm</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Body -->
+                        <div id="UuDai">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Ưu Đãi</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachUuDai" class="tableDanhSach">
+                                        <!-- <tr style="font-size:1.4rem ;">
+                                            <td>123</td>
+                                            <td>Combo 2</td>
+                                            <td>
+                                                <img src="../assets/img/Item/ComBo1Nguoi.png" alt="">
+                                            </td>
+                                            <td>50.000 đ</td>
+                                            <td>02 Miếng Gà Rán + 1 lon PepSi</td>
+                                            <td>
+                                                <button class="border-0 btn-danger"
+                                                    style="cursor: pointer;">Delete</button>
+                                                <button class="border-0 ml-5 p-2 " style="cursor: pointer;"><svg
+                                                        xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                        viewBox="0 0 512 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                                        <!-- <path
+                                                            d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
+                                                    </svg></button>
+                                            </td> -->
+                                        </tr>
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="MonMoi">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Món Mới</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachMonMoi" class="tableDanhSach">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="Combo1Nguoi">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Combo 1 Người</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachCombo1Nguoi" class="tableDanhSach">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="ComboNhom">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Combo Nhóm</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachComboNhom" class="tableDanhSach">
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="GaRanGaQuay">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Gà Rán Gà Quay</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachGaRanGaQuay" class="tableDanhSach">
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="BurgerComMiY">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Burger - Cơm - Mì Ý</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachBurgerComMiY" class="tableDanhSach">
+                                       
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="ThucAnNhe">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Thức Ăn Nhẹ</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachThucAnNhe" class="tableDanhSach">
+                                        
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <div id="ThucUong_TrangMieng">
+                            <div class="card-body">
+                                <div class="row">
+                                    <div class="col-md-12 text-lg-left text-primary font-weight-bold ">
+                                        <h3>Thức Uống & Tráng Miệng</h3>
+                                    </div>
+                                </div>
+                                <table class="table table-bordered table-hover myTable">
+                                    <thead class="text-primary">
+                                        <tr>
+                                            <th class="nowrap">ID Sản Phẩm</th>
+                                            <th class="nowrap">
+                                                <span class="">Tên Sản Phẩm<span>
+                                                        <i class="fa fa-arrow-up" id="SapXepTang"></i>
+                                                        <i class="fa fa-arrow-down" id="SapXepGiam"></i>
+                                            </th>
+                                            <th class="nowrap w-25">Hình Ảnh</th>
+                                            <th class="nowrap">Giá</th>
+                                            <th class="nowrap">Thông Tin</th>
+                                            <th>
+                                                <em class="fa fa-cog"></em>
+                                                <br> Action
+                                            </th>
+                                        </tr>
+                                    </thead>
+                                    <tbody id="tableDanhSachThucUong_TrangMieng" class="tableDanhSach">
+                                    
+                                    </tbody>
+                                </table>
+                            </div>
+                        </div>
+                        <!-- Footer -->
+                        <div class="card-footer myCardFooter">
+                            <nav>
+                                <ul class="pagination justify-content-center" id="ulPhanTrang">
+                                </ul>
+                            </nav>
+                        </div>
+                    </div>
+                </div>
+                <!-- ACCOUNT -->
+                <div class="container-fluid container-fluid__total account hide">
+                    <div class="card text-center ">
+                        <!-- Header -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Tài
+                                        Khoản</h3>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button class="btn btn-primary font-weight-bold" id="btnThemAccount"
+                                        data-toggle="modal" data-target="#myModalAccount">Thêm Tài Khoản</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Body -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover myTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th class="nowrap">FullName</th>
+                                        <th class="nowrap">Email</th>
+                                        <th class="nowrap">Password</th>
+                                        <th class="nowrap">Password_confirmation</th>
+                                        <th class="nowrap">distinguish</th>
+                                        <th>
+                                            <em class="fa fa-cog"></em>
+                                            <br> Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableDanhSachAccount" class="tableDanhSach">
+                                    <!-- <tr class="h5">
+                                        <td>admin</td>
+                                        <td>admin@gmail.com</td>
+                                        <td>123456</td>
+                                        <td>123456</td>
+                                        <td>ADMIN</td>
+                                        <td>
+                                            <button class="border-0 btn-danger" style="cursor: pointer;">Delete</button>
+                                            <button class="border-0 ml-5 p-2 " style="cursor: pointer;" ><svg
+                                                    xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                    viewBox="0 0 512 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <!-- <path
+                                                        d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
+                                                </svg></button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Order Don hang-->
+                <div class="container-fluid container-fluid__total donhang hide">
+                    <div class="card text-center ">
+                        <!-- Header -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Đơn Hàng</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Body -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover myTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th class="nowrap">Tên Người Mua Hàng</th>
+                                        <th class="nowrap w-25">Tên Sản Phẩm</th>
+                                        <th class="nowrap ">Địa Chỉ</th>
+                                        <th class="nowrap">Số Điện Thoại</th>
+                                        <th class="nowrap">Tổng Tiền</th>
+                                        <th class="nowrap" >Thời Gian</th>%
+                                        <th class="nowrap" >Trạng Thái</th>
+                                        <th>
+                                            <em class="fa fa-cog"></em>
+                                            <br> Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableDanhSachOrder" class="tableDanhSach">
+                                    <!-- <tr class="h5" style="font-size:1.4rem ;">
+                                        <td>Thọ</td>
+                                        <td>combo2</td>
+                                        <td>VN</td>
+                                        <td>038447</td>
+                                        <td>
+                                            <img src="../assets/img/Item/ComBo1Nguoi.png" alt="">
+                                        </td>
+                                        <td>65.000 đ</td>
+                                        <td>
+                                            <button class="border-0 btn-danger" style="cursor: pointer;">Delete</button>
+                                            <button class="border-0 ml-5 p-2 " style="cursor: pointer;">Chấp
+                                                Nhận</button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+                <!-- Notify -->
+                <div class="container-fluid container-fluid__total productnotify hide">
+                    <div class="card text-center ">
+                        <!-- Header -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Thông Báo</h3>
+                                </div>
+                                <div class="col-md-6 text-right">
+                                    <button class="btn btn-primary font-weight-bold" id="btnThemNotify"
+                                        data-toggle="modal" data-target="#myModalNotify">Thêm Thông Báo</button>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Body -->
+                        <div class="card-body">
+                            <table class="table table-bordered table-hover myTable">
+                                <thead class="text-primary">
+                                    <tr>
+                                        <th class="nowrap w-25">Tên Thông Báo</th>
+                                        <th class="nowrap w-25">Hình Ảnh </th>
+                                        <th class="nowrap w-25">Chi Tiết Thông Báo</th>
+                                        <th>
+                                            <em class="fa fa-cog"></em>
+                                            <br> Action
+                                        </th>
+                                    </tr>
+                                </thead>
+                                <tbody id="tableDanhSachNotify" class="tableDanhSach">
+                                    <!-- <tr class="h5">
+                                        <td>admin</td>
+                                        <td>
+                                            <img src="../assets/img/Item/ComboNhom.jpg" alt="">
+                                        </td>
+                                        <td>dcszdcxdvx</td>
+                                        <td>
+                                            <button class="border-0 btn-danger" style="cursor: pointer;" >Delete</button>
+                                            <button class="border-0 ml-5 p-2 " style="cursor: pointer;"><svg
+                                                    xmlns="http://www.w3.org/2000/svg" height="1em"
+                                                    viewBox="0 0 512 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                                    <!-- <path
+                                                        d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
+                                                </svg></button>
+                                        </td>
+                                    </tr> -->
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- The Modal -->
+        <!-- Thêm Sản Phẩm -->
+        <div class="modal  modal-product fade" id="myModalProduct">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="head-form">
+                        <h2 id="header-title-product">Thêm Sản Phẩm</h2>
+                    </header>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form role="form" id="resetFormProduct" >
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <select name="typeProduct" id="typeModalProduct" class="form-control">
+                                        <option value="UuDai">Ưu Đãi</option>
+                                        <option value="MonMoi">Món Mới</option>
+                                        <option value="Combo1Nguoi">Combo 1 Người</option>
+                                        <option value="ComboNhom">Combo Nhóm</option>
+                                        <option value="GaRanGaQuay">Gà Rán Gà Quay</option>
+                                        <option value="BurgerComMiY">Burger - Cơm - Mì Ý</option>
+                                        <option value="ThucAnNhe">Thức Ăn Nhẹ</option>
+                                        <option value="ThucUong_TrangMieng">Thức Uống & Tráng Miệng</option>
+                                    </select>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="idProduct" id="idProduct" class="form-control input-sm"
+                                        placeholder="ID Sản Phẩm">
+                                </div>
+                                <span class="sp-thongbao" id="tbIDProduct"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="nameProduct" id="nameProduct" class="form-control input-sm"
+                                        placeholder="Tên Sản Phẩm">
+                                </div>
+                                <span class="sp-thongbao" id="tbNameProduct"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="imgProduct" id="imgProduct" class="form-control input-sm"
+                                        placeholder="Link URL Ảnh">
+                                </div>
+                                <span class="sp-thongbao" id="tbimgProduct"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="priceProduct" id="priceProduct"
+                                        class="form-control input-sm" placeholder="Giá">
+                                </div>
+                                <span class="sp-thongbao" id="tbPriceProduct"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="infoProduct" id="infoProduct" class="form-control input-sm"
+                                        placeholder="Thông Tin Sản Phẩm">
+                                </div>
+                                <span class="sp-thongbao" id="tbInfoProduct"></span>
+                            </div>
+                        
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="modal-footer">
+                        <div class="btnAddUpdateProduct">
+                            <button id="btnAddProduct" type="button" class="btn btn-success" onclick="addProduct()">Thêm Sản Phẩm</button>
+                        </div>
+                        <button id="btnDong" type="button" class="btn btn-danger btnDong-product"
+                            data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Thêm Tài Khoản -->
+        <div class="modal  modal-account fade" id="myModalAccount">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="head-form">
+                        <h2 id="header-title-account">Thêm Tài Khoản</h2>
+                    </header>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form role="form" id="resetFormAccount">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="nameAccount" id="nameAccount" class="form-control input-sm"
+                                        placeholder="FullName">
+                                </div>
+                                <span class="sp-thongbao" id="tbNameAccount"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="email" name="emailAccount" id="emailAccount"
+                                        class="form-control input-sm" placeholder="Email">
+                                </div>
+                                <span class="sp-thongbao" id="tbEmailAccount"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="passwordAccount" id="passwordAccount"
+                                        class="form-control input-sm" placeholder="password">
+                                </div>
+                                <span class="sp-thongbao" id="tbPasswordAccount"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="password_confirmationAccount"
+                                        id="password_confirmationAccount" class="form-control input-sm"
+                                        placeholder="Password Confirmation">
+                                </div>
+                                <span class="sp-thongbao" id="tbPassword_confirmationAccount"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <select name="distinguishAccount" id="distinguishAccount"
+                                        class="form-control input-sm">
+                                        <option value="Admin">Admin</option>
+                                        <option value="User">User</option>
+                                    </select>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="modal-footer-Account">
+                        <div class="btnAddUpdateAccount">
+                            <button id="btnAddAccount" type="button" class="btn btn-success" onclick="addAccount()">Thêm
+                                Tài Khoản</button>
+                        </div>
+                        <button id="btnDong" type="button" class="btn btn-danger btnDong-account"
+                            data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Thêm Thông Báo -->
+        <div class="modal  modal-notify fade" id="myModalNotify">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="head-form">
+                        <h2 id="header-title-notify">Thêm Thông Báo</h2>
+                    </header>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form role="form" id="resetFormNotify">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="nameNotify" id="nameNotify" class="form-control input-sm"
+                                        placeholder="Tên Thông Báo">
+                                </div>
+                                <span class="sp-thongbao" id="tbNameNotify"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="URLProduct" id="URLProduct" class="form-control input-sm"
+                                        placeholder="Link URL Ảnh">
+                                </div>
+                                <span class="sp-thongbao" id="tbURLProduct"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <div class="input-group-prepend">
+                                        <span class="input-group-text"><i class="fa fa-user"></i></span>
+                                    </div>
+                                    <input type="text" name="detailProduct" id="detailProduct"
+                                        class="form-control input-sm" placeholder="Chi tiết thông báo sản phẩm">
+                                </div>
+                                <span class="sp-thongbao" id="tbDetailProduct"></span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="modal-footer-notify">
+                        <div class="btnAddUpdateNotify">
+                            <button id="btnAddNotify" type="button" class="btn btn-success" onclick="addNotify()">Thêm
+                                Thông Báo</button>
+                        </div>
+                        <button id="btnDong" type="button" class="btn btn-danger btnDong-notify"
+                            data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="modal fade modal-order" id="myModalOrder">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <header class="head-form">
+                        <h2 id="header-title-notify">Thông Tin Đơn Hàng</h2>
+                    </header>
+                    <!-- Modal body -->
+                    <div class="modal-body">
+                        <form role="form" id="resetFormOrder">
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Tên Người Mua</h3>
+                                </div>
+                                <span id="infoNameBuy"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Địa Chỉ</h3>
+                                </div>
+                                <span id="infoAddress"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Số Điện Thoại</h3>
+                                </div>
+                                <span id="infoPhone"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Tên Sản Phẩm</h3>
+                                </div>
+                                <span id="infoNameProduct">  </span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Tổng Tiền</h3>
+                                </div>
+                                <span id="infoToTalAmount"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Thời Gian</h3>
+                                </div>
+                                <span id="infoTime"></span>
+                            </div>
+                            <div class="form-group">
+                                <div class="input-group">
+                                    <h3>Trạng Thái</h3>
+                                </div>
+                                <span id="infoTrangThai"></span>
+                            </div>
+                        </form>
+                    </div>
+                    <!-- Modal footer -->
+                    <div class="modal-footer" id="modal-footer-notify">
+                        <div class="btnAddUpdateOrder">
+                            <!-- <button id="btnAddOrder" type="button" class="btn btn-success" onclick="confirmOrder()">Xác Nhận Đơn Hàng</button> -->
+                        </div>
+                        <button id="btnDong" type="button" class="btn btn-danger btnDong-order"
+                            data-dismiss="modal">Đóng</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="overlay"></div>
+        <!-- jQuery CDN - Slim version (=without AJAX) -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+            integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+            crossorigin="anonymous"></script>
+        <!-- Popper.JS -->
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.0/umd/popper.min.js"
+            integrity="sha384-cs/chFZiN24E4KMATLdqdvsezGxaGsi4hLGOzlXwp5UZB1LY//20VyM2taTB4QvJ"
+            crossorigin="anonymous"></script>
+        <!-- jQuery Custom Scroller CDN -->
+        <script
+            src="https://cdnjs.cloudflare.com/ajax/libs/malihu-custom-scrollbar-plugin/3.1.5/jquery.mCustomScrollbar.concat.min.js"></script>
+        <!-- Axios -->
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <!-- Swal -->
+        <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+        <script type="text/javascript">
+            $(document).ready(function () {
+                $("#sidebar").mCustomScrollbar({
+                    theme: "minimal"
+                });
+
+                $('#dismiss, .overlay').on('click', function () {
+                    $('#sidebar').removeClass('active');
+                    $('.overlay').removeClass('active');
+                });
+
+                $('#sidebarCollapse').on('click', function () {
+                    $('#sidebar').addClass('active');
+                    $('.overlay').addClass('active');
+                    $('.collapse.in').toggleClass('in');
+                    $('a[aria-expanded=true]').attr('aria-expanded', 'false');
+                });
+            });
+        </script>
+        <!-- API -->
+        <script src="src/controll/callApiAccount.js"></script>
+        <script src="src/controll/callApiProduct.js"></script>
+        <script src="src/controll/callApiNotify.js"></script>
+        <script src="src/controll/callApiOrder.js"></script>
+        <!-- Product -->
+        <script src="./src/modals/Product/product.js"></script>
+        <script src="./src/services/Product/main.js"></script>
+        <!-- Account -->
+        <script src="./src/modals/Account/account.js"></script>
+        <script src="./src/services/Account/main.js"></script>
+        <!-- Notify -->
+        <script src="./src/modals/Notify/notify.js"></script>
+        <script src="./src/services/Notify/main.js"></script>
+        <!-- Order -->
+        <script src="./src/modals/Order/order.js"></script>
+        <script src="./src/services/Order/main.js"></script>
+        <!-- validate -->
+        <script src="./src/validates/validate.js"></script>
+        <!-- My JS Style -->
+        <script src="./js/btnAddProduct.js"></script>
+        <!-- khai báo -->
+        <script src="./js/declare.js"></script>
+    </body>
+
+</html>
