@@ -192,14 +192,6 @@ function renderProduct(data) {
             <div  class="product-buy" onclick="addCartItem(${ProductTemporary.id})"> Thêm </div>
         </div>`
         }
-        if (window.location.hash == `#${ProductTemporary.id}`) {
-            document.querySelector('.anhchitietsanpham').src = ProductTemporary.img
-            document.querySelector('.titleDetail').innerHTML = ProductTemporary.name
-            document.querySelector('.pnews').innerHTML = ProductTemporary.gia + "đ"
-            document.querySelector('.infoProduct').innerHTML = ProductTemporary.detail
-            document.querySelector('.modalProduct').classList.add('open');
-            document.querySelector('#nutthem').innerHTML = `<button class="themDetail" onclick = "themDetail(${ProductTemporary.id})">Thêm</button>`
-        }
     }
     showUuDai.innerHTML = uudai;
     showMonMoi.innerHTML = monmoi;
@@ -214,6 +206,15 @@ function detailProduct(id) {
     var promise = apiProduct.getProduct(id);
     promise
         .then(function (result) {
+            document.querySelector('.header-search__input').value = ""
+            document.querySelector('.header__search-history').style.display = "none"
+            document.querySelector('#DanhMucSanPham').style.display = 'block'
+            document.querySelector('#trangchu').style.display = 'none'
+            document.querySelector('.navigation-nav__link-home').classList.remove('active');
+            document.querySelector('.navigation-nav__link--no-select').classList.add('active')
+            document.querySelector('#DonHang').style.display = 'none'
+            document.querySelector('#ThongTinCaNhan').style.display = 'none'
+            document.querySelector('#GioHang').style.display = 'none'
             document.querySelector('.anhchitietsanpham').src = result.data.img
             document.querySelector('.titleDetail').innerHTML = result.data.name
             document.querySelector('.pnews').innerHTML = result.data.gia + "đ"

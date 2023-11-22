@@ -56,9 +56,6 @@ footerlists.forEach((footerlist, index) => {
         document.querySelector('#trangchu').style.display = 'none'
         document.querySelector('.navigation-nav__link-home').classList.remove('active');
         document.querySelector('.navigation-nav__link--no-select').classList.add('active')
-        document.querySelector('#DonHang').style.display = 'none'
-        document.querySelector('#ThongTinCaNhan').style.display = 'none'
-        document.querySelector('#GioHang').style.display = 'none'
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
 
@@ -77,9 +74,6 @@ productLists.forEach((productList, index) => {
         document.querySelector('#trangchu').style.display = 'none'
         document.querySelector('.navigation-nav__link-home').classList.remove('active');
         document.querySelector('.navigation-nav__link--no-select').classList.add('active')
-        document.querySelector('#DonHang').style.display = 'none'
-        document.querySelector('#ThongTinCaNhan').style.display = 'none'
-        document.querySelector('#GioHang').style.display = 'none'
         const targetId = this.getAttribute('href');
         const targetElement = document.querySelector(targetId);
 

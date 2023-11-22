@@ -20,6 +20,9 @@
         <link rel="stylesheet" href="./assets/css/base.css">
         <link rel="stylesheet" href="./assets/css/responsive.css">
         <link rel="stylesheet" href="./assets/font/themify-icons-font/themify-icons/themify-icons.css">
+         <!-- CSS danh sách sản phẩm -->
+         <link rel="stylesheet" href="./DanhMucSanPham/style.css">
+         <link rel="stylesheet" href="./DanhMucSanPham/responsive.css">
     </head>
 
     <body>
@@ -162,71 +165,110 @@
                                     class="navigation-nav__link navigation-nav__link-home active">Home</a>
                             </li>
                             <li class="navigation-nav__item navigation-nav__item-folder">
-                                <div class="navigation-nav__link navigation-nav__link--no-select"> Danh Mục Sản Phẩm <i
-                                        class="navigation-nav__item-icon-down ti-angle-down"></i>
-                                </div>
-                                <div class="navigation-nav__category">
-                                    <ul class="navigation-nav__category-list">
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#UuDai"
-                                                class="navigation-nav__category-link">
-                                                <i class="navigation-nav__category-icon ti-angle-right"></i>Ưu Đãi</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#MonMoi"
-                                                class="navigation-nav__category-link">
-                                                <i class="navigation-nav__category-icon ti-angle-right"></i>Món Mới</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#Combo1Nguoi"
-                                                class="navigation-nav__category-link"><i
-                                                    class="navigation-nav__category-icon ti-angle-right"></i>Combo 1
-                                                Người</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#ComboNhom"
-                                                class="navigation-nav__category-link"><i
-                                                    class="navigation-nav__category-icon ti-angle-right"></i>Combo
-                                                Nhóm</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#GaRanGaQuay"
-                                                class="navigation-nav__category-link"><i
-                                                    class="navigation-nav__category-icon ti-angle-right"></i>Gà Rán - Gà
-                                                Quay</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#BurgerComMiY"
-                                                class="navigation-nav__category-link"><i
-                                                    class="navigation-nav__category-icon ti-angle-right"></i>Burger -
-                                                Cơm - Mì Ý</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#ThucAnNhe"
-                                                class="navigation-nav__category-link"><i
-                                                    class="navigation-nav__category-icon ti-angle-right"></i>Thức Ăn
-                                                Nhẹ</a>
-                                        </li>
-                                        <li class="navigation-nav__category-item">
-                                            <a href="./DanhMucSanPham/indexNoLogin.html#ThucUong_TrangMieng"
-                                                class="navigation-nav__category-link"><i
-                                                    class="navigation-nav__category-icon ti-angle-right"></i>Thức Uống &
-                                                Tráng Miệng</a>
-                                        </li>
-                                    </ul>
-                                </div>
-                            </li>
-                            <li class="navigation-nav__item">
-                                <a href="./HeThongNhaHang/index.html"
-                                    class="navigation-nav__link navigation-nav__link-HTNH">Hệ Thống Nhà Hàng</a>
+                                <a class="navigation-nav__link navigation-nav__link--no-select"> Danh Mục Sản Phẩm </a>
                             </li>
                         </ul>
                     </div>
                 </div>
             </div>
             <!-- NAVIGATION -->
+            <!-- Bao danh mục sản phẩm -->
+            <div id="DanhMucSanPham">
+                <!-- BREADCRUMB -->
+                <div id="breadcrumb">
+                    <div class="container">
+                        <div class="breadcrumb-category">
+                            <ul class="breadcrumb-list">
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link active" href="#UuDai">Ưu Đãi</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#MonMoi">Món Mới</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#Combo1Nguoi">Combo 1 Người</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#ComboNhom">Combo Nhóm</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#GaRanGaQuay">Gà Rán - Gà Quay</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#BurgerComMiY">Burger - Cơm - Mì Ý</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#ThucAnNhe">Thức Ăn Nhẹ</a>
+                                </li>
+                                <li class="breadcrumb-item">
+                                    <a class="breadcrumb-link" href="#ThucUong_TrangMieng">Thức Uống & Tráng Miệng</a>
+                                </li>
+                            </ul>
+                            <div class="breadcrumb-btn">
+                                <a class="breadcrumb-btn__prev prev ti-angle-left" style="display: none;"></a>
+                                <a class="breadcrumb-btn__next next ti-angle-right"></a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- BREADCRUMB -->
+                <!-- SANPHAM -->
+                <div id="sanpham">
+                    <div class="container">
+                        <div id="UuDai">
+                            <h1 class="product-title">ƯU ĐÃI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__UuDai ">
+                            </div>
+                        </div>
+                        <div id="MonMoi">
+                            <h1 class="product-title">MÓN MỚI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__MonMoi">
+                            </div>
+                        </div>
+                        <div id="Combo1Nguoi">
+                            <h1 class="product-title">COMBO 1 NGƯỜI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1  product-list__Combo1Nguoi">
+                            </div>
+                        </div>
+                        <div id="ComboNhom">
+                            <h1 class="product-title">COMBO NHÓM</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ComboNhom ">
+                            </div>
+                        </div>
+                        <div id="GaRanGaQuay">
+                            <h1 class="product-title">GÀ RÁN - GÀ QUAY</h1>
+                            <div
+                                class=" row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__GaRanGaQuay">
+                            </div>
+                        </div>
+                        <div id="BurgerComMiY">
+                            <h1 class="product-title">BURGER - CƠM - MÌ Ý</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__BurgerComMiY">
+                            </div>
+                        </div>
+                        <div id="ThucAnNhe">
+                            <h1 class="product-title">THỨC ĂN NHẸ</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucAnNhe ">
+                            </div>
+                        </div>
+                        <div id="ThucUong_TrangMieng">
+                            <h1 class="product-title">THỨC UỐNG & TRÁNG MIỆNG</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucUong_TrangMieng">
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <!-- SANPHAM -->
+            </div>
             <!-- Bao của trang chủ  -->
-            <div class="trangchu">
+            <div id="trangchu">
                 <!-- SILIDER ( hình trượt) -->
                 <div id="slider">
                     <div class="slideshow-container">
@@ -253,90 +295,90 @@
                         </h3>
                         <!-- Sản phẩm của danh mục -->
                         <div
-                            class="product-portfolio row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1">
+                            class="product-portfolio row row-cols-xl-4 row-cols-sm-2 row-cols-md-3 row-cols-lg-4 row-cols-1">
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#UuDai">
+                                <a class="product-link" href="#UuDai">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/Uu Dai.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Ưu Đãi</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#MonMoi">
+                                <a class="product-link" href="#MonMoi">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/MON MOI.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Món Mới</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#Combo1Nguoi">
+                                <a class="product-link" href="#Combo1Nguoi">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/ComBo1Nguoi.png" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>ComBo 1 Người</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#ComboNhom">
+                                <a class="product-link" href="#ComboNhom">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/ComboNhom.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Combo Nhóm</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#GaRaGaQuay">
+                                <a class="product-link" href="#GaRanGaQuay">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/GaRanGaQuay.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Gà Rán - Gà Quay</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#BurgerComMiY">
+                                <a class="product-link" href="#BurgerComMiY">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/HonHop.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Burger - Cơm - Mì Ý</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#ThucAnNhe">
+                                <a class="product-link" href="#ThucAnNhe">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/ThucAnNhe.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Thức Ăn Nhẹ</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
                                 </a>
                             </div>
                             <div class="product-item ">
-                                <a class="product-link" href="./DanhMucSanPham/indexNoLogin.html#ThucUong_TrangMieng">
+                                <a class="product-link" href="#ThucUong_TrangMieng">
                                     <div class="product-img">
                                         <img src="./assets/img/Item/TRANG MIENG.jpg" alt="">
                                     </div>
-                                    <div class="product-info">
+                                    <div class="product-info__item">
                                         <h2>Thức Uống & Tráng Miệng</h2>
                                         <i class="product-icon fa-solid fa-angle-right"></i>
                                     </div>
@@ -355,33 +397,33 @@
                             <h3 class="footer-heading">DANH MỤC SẢN PHẨM</h3>
                             <ul class="footer-list">
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#UuDai" class="footer-link">Ưu Đãi</a>
+                                    <a href="#UuDai" class="footer-link">Ưu Đãi</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#MonMoi" class="footer-link">Món Mới</a>
+                                    <a href="#MonMoi" class="footer-link">Món Mới</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#Combo1Nguoi" class="footer-link"> Combo
+                                    <a href="#Combo1Nguoi" class="footer-link"> Combo
                                         1 Người</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#ComboNhom" class="footer-link">Combo
+                                    <a href="#ComboNhom" class="footer-link">Combo
                                         Nhóm</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#GaRaGaQuay" class="footer-link">Gà Rán -
+                                    <a href="#GaRaGaQuay" class="footer-link">Gà Rán -
                                         Gà Quay</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#BurgerComMiY" class="footer-link">Burger
+                                    <a href="#BurgerComMiY" class="footer-link">Burger
                                         - Cơm - Mì Ý</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#ThucAnNhe" class="footer-link">Thức Ăn
+                                    <a href="#ThucAnNhe" class="footer-link">Thức Ăn
                                         Nhẹ</a>
                                 </li>
                                 <li class="footer-item">
-                                    <a href="./DanhMucSanPham/indexNoLogin.html#ThucUong_TrangMieng"
+                                    <a href="#ThucUong_TrangMieng"
                                         class="footer-link">Thức Uống & Tráng Miệng</a>
                                 </li>
                             </ul>
@@ -448,6 +490,29 @@
             </footer>
             <!-- FOOTER -->
         </div>
+         <!-- Modal CHI TIẾT SẢN PHẨM -->
+         <div class="modalProduct">
+            <div class="khungchitietsanpham">
+                <div class="tam">
+                    <div class="chitietanh">
+                        <img src="" alt="" class="anhchitietsanpham">
+                    </div>
+                    <div class="thongtinchitietsanpham">
+                        <h1 class="titleDetail"></h1>
+                        <div class="priceDetail">
+                            <div class="pname">Giá bán:</div>
+                            <div class="pnews"></div>
+                        </div>
+                        <div class="infoProduct">
+                            <p></p>
+                        </div>
+                        <div id="nutthem">
+                            <button class="themDetail">Thêm</button>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- jQuery Plugins -->
         <!-- Thêm thư viện jQuery trước -->
         <script src="./src/jquery.min.js"></script>
@@ -457,10 +522,36 @@
         <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
         <!-- API -->
         <script src="./ADMIN/src/controll/callApiProduct.js"></script>
+        <script src="./ADMIN/src/controll/callApiNotify.js"></script>
+        <script src="./ADMIN/src/controll/callApiAccount.js"></script>
+        <script src="./ADMIN/src/controll/callApiOrder.js"></script>
         <!-- Tự JS -->
-        <script src="./js/select-navigation.js"></script>
         <script src="./js/slider.js"> </script>
-        <script src="./js/search_input_trangchu.js"></script>
+        <script src="./js/search_input.js"></script>
+        <!-- Danh mục sản phẩm -->
+        <script src="./DanhMucSanPham/js/sanpham_nologin.js"></script>
+        <script src="./DanhMucSanPham/js/showProductNoLogin.js"></script>
+        <script src="./DanhMucSanPham/js/ListProductMobile.js"></script>
+        <script src="./DanhMucSanPham/js/select-navigation.js"></script>
+        <script src="./DanhMucSanPham/js/slider.js"></script>
+        <!--Chi tiết sản phẩm -->
+        <script>
+            var modalProduct = document.querySelector('.modalProduct')
+
+            function hideModalProduct() {
+                modalProduct.classList.remove('open')
+            }
+            modalProduct.addEventListener('click', hideModalProduct);
+            document.querySelector('.khungchitietsanpham').addEventListener('click', function (event) { event.stopPropagation(); })
+        </script>
+        <script>
+            document.querySelector('.navigation-nav__link--no-select').onclick = function () {
+                document.querySelector('#DanhMucSanPham').style.display = 'block'
+                document.querySelector('#trangchu').style.display = 'none'
+                document.querySelector('.navigation-nav__link-home').classList.remove('active');
+                this.classList.add('active')
+            }
+        </script>
     </body>
 
 </html>
