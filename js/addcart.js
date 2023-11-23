@@ -170,11 +170,9 @@ function notiAlert(position, icon, title, timer) {
     });
 }
 
-document.querySelector('.bill').style.display = 'none';
-var s = '';
 function updateUI(a) {
     var s = '';
-    a.map(function (value) {
+    a.map(function(value) {
         s += '<div class="spdachon"><div class="chonmua"><input type="checkbox" id="checkbox_' + value.product.id + '" onclick=tinhTongTien()></div>' +
             '<div class="thongtinsp"> <a href="" ><img class="anhsp" src="' + value.product.img + '" alt=""></a><a href="" class="tensp" onclick="themvaogiohang(this)">' + value.product.name + '</a>' +
             '</div><div class="dongia" id="dongia_' + value.product.id + '">' + value.product.gia + '</div>' +
@@ -271,24 +269,8 @@ function tinhTongTien() {
 }
 
 function xoasp(productid) {
-    for (var i = 0; i < cart.listProduct.length; i++) {
-        if (productid === cart.listProduct[i].product.id) {
-            // Kiểm tra xem checkbox có tồn tại hay không
-            var checkbox = document.getElementById('checkbox_' + productid);
-
-            // Nếu checkbox tồn tại và đã được chọn
-            if (checkbox && checkbox.checked) {
-                // Trừ giá trị sản phẩm được xóa khỏi tổng tiền
-                var giaSanPhamXoa = cart.listProduct[i].product.gia;
-                var soLuongSanPhamXoa = cart.listProduct[i].quantity;
-                cart.totalPrice -= giaSanPhamXoa * soLuongSanPhamXoa;
-            }
-            // Xóa sản phẩm khỏi mảng
-            a.splice(i, 1);
-            break; // Exit the loop after removing the element
-        }
-    }
-
+    var index = cart.listProduct.findIndex((item) => item.product.id == productid);
+    cart.listProduct.splice(index, 1);
 
     // Uncheck the checkbox associated with the deleted product
     var checkbox = document.getElementById('checkbox_' + productid);
@@ -303,11 +285,17 @@ function xoasp(productid) {
     if (deleteButtonParentDiv) {
         deleteButtonParentDiv.parentNode.removeChild(deleteButtonParentDiv);
     }
-    renderCartItem(cart);
-    setCartLocalStoregrade(cart.listProduct)
     // Update lại tổng tiền và hiển thị
     tinhTongTien();
+
+    // Cập nhật local storage sau khi sửa đổi giỏ hàng
+    setCartLocalStoregrade(cart.listProduct);
+
+    // Hiển thị lại giỏ hàng sau khi cập nhật
+    renderCartItem(cart);
+    
 }
+
 
 function deleteall() {
     // Xóa toàn bộ mảng a
@@ -331,7 +319,9 @@ function deleteall() {
     if (chonAllCheckbox) {
         chonAllCheckbox.checked = false;
     }
-
+    cart.listProduct = [];
+    setCartLocalStoregrade(cart.listProduct);
+    renderCartItem(cart)
 }
 
 
@@ -408,7 +398,7 @@ document.querySelector('.thanhtoan').addEventListener('click', function (e) {
     isValid &= kiemTraSo(phone, 'chuaNhapSDT', "Vui lòng nhập đúng định dạng", "Vui lòng không được bỏ trống");
     var orderData = {
         namebuy: user.fullname,
-        nameproduct: a.map(item => item.product.name + "   x" + item.quantity),
+        nameproduct: cart.listProduct.map(item => item.product.name + "   x" + item.quantity),
         totalAmount: tinhTongTien(),
         trangthai: "Chờ xác nhận",
         phone: phone,
