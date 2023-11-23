@@ -1,7 +1,8 @@
 document.querySelector('.bill').style.display = 'none';
+localStorage.getItem('cart')
 var a = cart.listProduct;
 var s = '';
-cart.listProduct.map(function (value) {
+a.map(function (value) {
     s += '<div class="spdachon"><div class="chonmua"><input type="checkbox" id="checkbox_' + value.product.id + '" onclick=tinhTongTien()></div>' +
         '<div class="thongtinsp"> <a href="" ><img class="anhsp" src="' + value.product.img + '" alt=""></a><a href="" class="tensp" onclick="themvaogiohang(this)">' + value.product.name + '</a>' +
         '</div><div class="dongia" id="dongia_' + value.product.id + '">' + value.product.gia + '</div>' +
@@ -12,6 +13,19 @@ cart.listProduct.map(function (value) {
 });
 document.querySelector('.content').innerHTML = s;
 
+function updateUI() {
+    var s = '';
+    a.map(function (value) {
+        s += '<div class="spdachon"><div class="chonmua"><input type="checkbox" id="checkbox_' + value.product.id + '" onclick=tinhTongTien()></div>' +
+        '<div class="thongtinsp"> <a href="" ><img class="anhsp" src="' + value.product.img + '" alt=""></a><a href="" class="tensp" onclick="themvaogiohang(this)">' + value.product.name + '</a>' +
+        '</div><div class="dongia" id="dongia_' + value.product.id + '">' + value.product.gia + '</div>' +
+        ' <div class="soluong"><button class="giatri" onclick="giamsl(' + value.product.id + ')">-</button>' +
+        '<input type="text" value=' + value.quantity + '  id="nhapgiatri_' + value.product.id + '"><button class="giatri" onclick="tangsl(' + value.product.id + ')">+' +
+        '</button></div>' +
+        ' <div class="thaotac"><button value="xoa" onclick="xoasp(' + value.product.id + ')">Xóa</button></div></div> ';
+    });
+    document.querySelector('.content').innerHTML = s;
+}
 //Nút tăng giảm sp
 function render(productid, amount) {
     var amountElement = document.getElementById('nhapgiatri_' + productid);

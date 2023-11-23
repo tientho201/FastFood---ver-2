@@ -157,33 +157,6 @@ function deleteItemCart(id) {
     renderCartItem(cart);
 }
 
-function changeQty(id, n) {
-    var index = cart.listProduct.findIndex((item) => item.product.id == id);
-    cart.listProduct[index].quantity += n;
-    cart.tinhTotalPrice();
-    cart.tinhTotalQuantity();
-    setCartLocalStoregrade(cart.listProduct);
-    renderCartItem(cart);
-}
-function checkoutCart() {
-    if (cart.listProduct.length <= 0) {
-        notiAlert('center', 'error', 'Không có sản phẩm', 1000);
-        return;
-    }
-    notiAlert('center', 'success', 'Thanh toán thành công', 1000);
-} function setCartLocalStoregrade(data) {
-    localStorage.setItem('cart', JSON.stringify(data));
-}
-
-function getCartLocalStoregrade() {
-    if (localStorage.getItem('cart')) {
-        cart.listProduct = JSON.parse(localStorage.getItem('cart'));
-        cart.tinhTotalPrice();
-        cart.tinhTotalQuantity();
-        renderCartItem(cart);
-    }
-}
-
 function setCartLocalStoregrade(data) {
     localStorage.setItem('cart', JSON.stringify(data));
 }
