@@ -102,11 +102,11 @@ function themDetail(id, qty = 1) {
     var cartItem = { product, quantity: qty };
     if (!cart.listProduct.find((item) => item.product.id == id)) {
         cart.listProduct.push(cartItem);
-        notiAlert("center" , "success" , "Thêm thành công" , 1500)
+        notiAlert("center", "success", "Thêm thành công", 1500)
     } else {
         var index = cart.listProduct.findIndex((item) => item.product.id == id);
         cart.listProduct[index].quantity += qty;
-        notiAlert("center" , "success" , "Thêm thành công" , 1500)
+        notiAlert("center", "success", "Thêm thành công", 1500)
     }
     cart.tinhTotalQuantity();
     setCartLocalStoregrade(cart.listProduct);
@@ -120,11 +120,11 @@ function addCartItem(id, qty = 1) {
     var cartItem = { product, quantity: qty };
     if (!cart.listProduct.find((item) => item.product.id == id)) {
         cart.listProduct.push(cartItem);
-        notiAlert( "center","success" , "Thêm thành công" , 1500)
+        notiAlert("center", "success", "Thêm thành công", 1500)
     } else {
         var index = cart.listProduct.findIndex((item) => item.product.id == id);
         cart.listProduct[index].quantity += qty;
-        notiAlert( "center","success" , "Thêm thành công" , 1500)
+        notiAlert("center", "success", "Thêm thành công", 1500)
     }
     cart.tinhTotalQuantity();
     setCartLocalStoregrade(cart.listProduct);
@@ -176,12 +176,12 @@ function updateUI(a) {
     var s = '';
     a.map(function (value) {
         s += '<div class="spdachon"><div class="chonmua"><input type="checkbox" id="checkbox_' + value.product.id + '" onclick=tinhTongTien()></div>' +
-        '<div class="thongtinsp"> <a href="" ><img class="anhsp" src="' + value.product.img + '" alt=""></a><a href="" class="tensp" onclick="themvaogiohang(this)">' + value.product.name + '</a>' +
-        '</div><div class="dongia" id="dongia_' + value.product.id + '">' + value.product.gia + '</div>' +
-        ' <div class="soluong"><button class="giatri" onclick="giamsl(' + value.product.id + ')">-</button>' +
-        '<input type="text" value=' + value.quantity + '  id="nhapgiatri_' + value.product.id + '"><button class="giatri" onclick="tangsl(' + value.product.id + ')">+' +
-        '</button></div>' +
-        ' <div class="thaotac"><button value="xoa" onclick="xoasp(' + value.product.id + ')">Xóa</button></div></div> ';
+            '<div class="thongtinsp"> <a href="" ><img class="anhsp" src="' + value.product.img + '" alt=""></a><a href="" class="tensp" onclick="themvaogiohang(this)">' + value.product.name + '</a>' +
+            '</div><div class="dongia" id="dongia_' + value.product.id + '">' + value.product.gia + '</div>' +
+            ' <div class="soluong"><button class="giatri" onclick="giamsl(' + value.product.id + ')">-</button>' +
+            '<input type="text" value=' + value.quantity + '  id="nhapgiatri_' + value.product.id + '" oninput=nhapgiatri(' + value.product.id + ') ><button class="giatri" onclick="tangsl(' + value.product.id + ')">+' +
+            '</button></div>' +
+            ' <div class="thaotac"><button value="xoa" onclick="xoasp(' + value.product.id + ')">Xóa</button></div></div> ';
     });
     document.querySelector('.content').innerHTML = s;
 }
@@ -198,15 +198,15 @@ function render(productid, amount) {
 
 }
 function nhapgiatri(productid) {
-    var pattern = /^[1-9]\d*$/;
+    var pattern = /^[0-9]+$/;
     var amountElement = document.getElementById('nhapgiatri_' + productid);
     var amount = amountElement.value;
-   
-    if(!pattern.test(amount)){
-        amount='1';
+
+    if (!pattern.test(amount)) {
+        amount = '1';
     }
-        
-   render(productid, amount);
+
+    render(productid, amount);
     tinhTongTien();
 }
 function tangsl(productid) {
@@ -232,13 +232,13 @@ var chonAllCheckbox = document.querySelector('.chonall');
 chonAllCheckbox.addEventListener('change', function () {
     var isChecked = chonAllCheckbox.checked;
 
-    a.forEach(function (value) {
+    cart.listProduct.forEach(function (value) {
         var checkboxElement = document.getElementById('checkbox_' + value.product.id);
         if (checkboxElement) {
             checkboxElement.checked = isChecked;
         }
     });
-
+    
     // Recalculate the total when the "Chọn tất cả" checkbox changes
     tinhTongTien();
 });
@@ -248,7 +248,7 @@ function tinhTongTien() {
     var tongTien = 0;
 
     // Lặp qua danh sách sản phẩm để kiểm tra checkbox
-    a.forEach(function (value) {
+    cart.listProduct.forEach(function (value) {
         // Lấy id của checkbox
         var checkboxId = 'checkbox_' + value.product.id;
 
@@ -266,31 +266,29 @@ function tinhTongTien() {
 
     // Hiển thị tổng số tiền
     document.querySelector('.sotien').innerHTML = (tongTien > 0 ? tongTien : -tongTien) + '.000 đ';
-    return tongTien > 0 ? tongTien : -tongTien ;
+    return tongTien > 0 ? tongTien : -tongTien;
 
 }
 
 function xoasp(productid) {
-    for (var i = 0; i < a.length; i++) {
-        if (productid === a[i].product.id) {
+    for (var i = 0; i < cart.listProduct.length; i++) {
+        if (productid === cart.listProduct[i].product.id) {
             // Kiểm tra xem checkbox có tồn tại hay không
             var checkbox = document.getElementById('checkbox_' + productid);
 
             // Nếu checkbox tồn tại và đã được chọn
             if (checkbox && checkbox.checked) {
                 // Trừ giá trị sản phẩm được xóa khỏi tổng tiền
-                var giaSanPhamXoa = a[i].product.gia;
-                var soLuongSanPhamXoa = a[i].quantity;
+                var giaSanPhamXoa = cart.listProduct[i].product.gia;
+                var soLuongSanPhamXoa = cart.listProduct[i].quantity;
                 cart.totalPrice -= giaSanPhamXoa * soLuongSanPhamXoa;
             }
-
             // Xóa sản phẩm khỏi mảng
             a.splice(i, 1);
             break; // Exit the loop after removing the element
         }
     }
-    // Update lại tổng tiền và hiển thị
-    tinhTongTien();
+
 
     // Uncheck the checkbox associated with the deleted product
     var checkbox = document.getElementById('checkbox_' + productid);
@@ -305,7 +303,10 @@ function xoasp(productid) {
     if (deleteButtonParentDiv) {
         deleteButtonParentDiv.parentNode.removeChild(deleteButtonParentDiv);
     }
-
+    renderCartItem(cart);
+    setCartLocalStoregrade(cart.listProduct)
+    // Update lại tổng tiền và hiển thị
+    tinhTongTien();
 }
 
 function deleteall() {
@@ -313,7 +314,7 @@ function deleteall() {
     a = [];
 
     // Uncheck all checkboxes
-    a.forEach(function (value) {
+    cart.listProduct.forEach(function (value) {
         var checkboxElement = document.getElementById('checkbox_' + value.productid);
         if (checkboxElement) {
             checkboxElement.checked = false;
@@ -342,19 +343,19 @@ function muahang() {
     var selectedProductsHTML = '';
     var userInfoHTML = '';
 
-    for (var i = 0; i < a.length; i++) {
-        var checkboxId = 'checkbox_' + a[i].product.id;
+    for (var i = 0; i < cart.listProduct.length; i++) {
+        var checkboxId = 'checkbox_' + cart.listProduct[i].product.id;
         var checkbox = document.getElementById(checkboxId);
 
         if (checkbox && checkbox.checked) {
 
-            var soluong = document.getElementById('nhapgiatri_' + a[i].product.id).value;
+            var soluong = document.getElementById('nhapgiatri_' + cart.listProduct[i].product.id).value;
             selectedProductsHTML += `
                 <tr>
-                    <td><img src="${a[i].product.img}" alt="" class="anhbill"></td>
-                    <td class="tenspbill">${a[i].product.name}</td>
+                    <td><img src="${cart.listProduct[i].product.img}" alt="" class="anhbill"></td>
+                    <td class="tenspbill">${cart.listProduct[i].product.name}</td>
                     <td class="soluongspbill">${soluong}</td>
-                    <td class="giatienspbill">${a[i].product.gia} đ</td>
+                    <td class="giatienspbill">${cart.listProduct[i].product.gia} đ</td>
                 </tr>`;
         }
     }
@@ -393,8 +394,8 @@ function getListOrder() {
 var isSubmitting = false;
 document.querySelector('.thanhtoan').addEventListener('click', function (e) {
     e.preventDefault();
-       // Kiểm tra nếu đang trong quá trình submit
-       if (isSubmitting) {
+    // Kiểm tra nếu đang trong quá trình submit
+    if (isSubmitting) {
         return;
     }
 
@@ -404,38 +405,38 @@ document.querySelector('.thanhtoan').addEventListener('click', function (e) {
     var address = document.querySelector('#nhapaddress').value
     var isValid = true;
     isValid &= ktRong(address, 'chuaNhapAddress', "Vui lòng không được bỏ trống");
-    isValid &= kiemTraSo(phone, 'chuaNhapSDT', "Vui lòng nhập đúng định dạng" , "Vui lòng không được bỏ trống");
-        var orderData = {
-            namebuy: user.fullname,
-            nameproduct: a.map(item =>  item.product.name + "   x" + item.quantity),
-            totalAmount: tinhTongTien(),
-            trangthai: "Chờ xác nhận",
-            phone: phone,
-            address: address,
-            email : user.email,
-            date : today.getDate() +'/'+ (today.getMonth() + 1) +'/' + today.getFullYear() + "  " + today.getHours() + ":" + today.getMinutes() +":" + today.getSeconds()  
-        }
-    
-        if (phone != "" && address != "" && /^\d+$/.test(phone)) {
-            var promise = apiOrder.addOrder(orderData);
-            isSubmitting = true;
-            promise
-                .then(function (data) {
-                    getListOrder();
-                    cart.listProduct = [];
-                    setCartLocalStoregrade(cart.listProduct);
-                    NotiAlert("success", "Thêm Đơn Hàng", 1500);
-                    
-                    setTimeout(function () {
-                        location.reload();
-                    }, 2000);
+    isValid &= kiemTraSo(phone, 'chuaNhapSDT', "Vui lòng nhập đúng định dạng", "Vui lòng không được bỏ trống");
+    var orderData = {
+        namebuy: user.fullname,
+        nameproduct: a.map(item => item.product.name + "   x" + item.quantity),
+        totalAmount: tinhTongTien(),
+        trangthai: "Chờ xác nhận",
+        phone: phone,
+        address: address,
+        email: user.email,
+        date: today.getDate() + '/' + (today.getMonth() + 1) + '/' + today.getFullYear() + "  " + today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds()
+    }
 
-                })
-                .catch(function (error) {
-                    console.log(error);
-                })
-        }
-    
+    if (phone != "" && address != "" && /^\d+$/.test(phone)) {
+        var promise = apiOrder.addOrder(orderData);
+        isSubmitting = true;
+        promise
+            .then(function (data) {
+                getListOrder();
+                cart.listProduct = [];
+                setCartLocalStoregrade(cart.listProduct);
+                NotiAlert("success", "Thêm Đơn Hàng", 1500);
+
+                setTimeout(function () {
+                    location.reload();
+                }, 2000);
+
+            })
+            .catch(function (error) {
+                console.log(error);
+            })
+    }
+
 })
 
 function NotiAlert(icon, title, timer) {
