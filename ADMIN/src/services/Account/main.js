@@ -20,6 +20,7 @@ getListAccount();
 function RenderAccount(data) {
     var tableAccount = document.querySelector('#tableDanhSachAccount');
     var s = "";
+    var percentAdmin = 0, percentUser = 0;
     for (var i = 0; i < data.length; i++) {
         var account = data[i];
         s += `
@@ -39,10 +40,39 @@ function RenderAccount(data) {
                 </svg></button>
         </td>
     </tr>`;
+        if (account.distinguish === "Admin") {
+            percentAdmin++;
+        } else {
+            percentUser++;
+        }
     }
-
+    document.querySelector('.thongketaikhoan').innerHTML = `
+    <div>
+        <div class="statisticalProduct progress" style="--i: ${(percentAdmin / data.length * 100).toFixed(2)} ; --clr:red">
+        <h3>${(percentAdmin / data.length * 100).toFixed(2)} <span>%</span></h3>
+        <h4>Admin</h4>
+        </div>
+        <h3 class= "thongbao">${percentAdmin} tài khoản Admin</h3>
+    </div>
+    <div>
+        <div class="statisticalProduct progress" style="--i:${(percentUser / data.length * 100).toFixed(2)}  ; --clr:red    ">
+        <h3>${(percentUser / data.length * 100).toFixed(2)} <span>%</span></h3>
+        <h4>User</h4>
+        </div>
+        <h3 class= "thongbao">${percentUser} tài khoản User</h3>
+    </div>
+    `
     tableAccount.innerHTML = s;
+    var progressBars = document.querySelectorAll('.progress');
+
+    // Duyệt qua từng phần tử và đặt gradient cho mỗi phần tử
+    progressBars.forEach((progress, index) => {
+        var percent = progress.style.getPropertyValue('--i');
+        progress.style.background = `conic-gradient(from 0turn, var(--clr) ${percent}% , #444 0)`;
+    });
 }
+
+
 // Hàm chỉnh sửa
 function infoEditAccount(data) {
     document.querySelector('#nameAccount').value = data.fullname;

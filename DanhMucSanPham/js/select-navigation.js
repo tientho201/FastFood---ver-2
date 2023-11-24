@@ -20,17 +20,17 @@ let next = document.querySelector('.next')
 let toolbar = document.getElementById("navigation");
 let toolbreadcrumb = document.getElementById('breadcrumb');
 let toolbclink = document.querySelectorAll('.breadcrumb-link');
-let distance = 0; // Get the initial offset of the toolbar from the top of the document
+let distance = 0 ; // Get the initial offset of the toolbar from the top of the document
 
 function myFunction() {
   if (window.matchMedia("(min-width: 740px)").matches) {
     if (window.pageYOffset > distance) {
-      toolbar.style.position = "fixed";
+      toolbar.style.position = "sticky";
       toolbar.style.animation = "menuMobileSlip 0.4s ease";
       toolbar.style.top = '0';
       toolbar.style.zIndex = '4';
       toolbreadcrumb.style.borderTop = "2px solid #ccc";
-      toolbreadcrumb.style.position = "fixed";
+      toolbreadcrumb.style.position = "sticky";
       toolbreadcrumb.style.animation = "menuMobileSlip 0.4s ease";
       toolbreadcrumb.style.top = '58px';
       toolbreadcrumb.style.zIndex = '4';

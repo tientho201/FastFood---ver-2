@@ -399,21 +399,21 @@ function listpageGaRanGaQuay(array) {
     document.querySelector('.chuyentrangGaRanGaQuay').innerHTML = buttonsHTML;
 }
 function listpageThucUongTrangMieng(array) {
-    var perpage = Math.ceil(array.length / limit7);
-    var buttonsHTML = '';
-
-    for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage7(' + i + ')"></input>';
-    }
-
-    document.querySelector('.chuyentrangThucUongTrangMieng').innerHTML = buttonsHTML;
-}
-function listpageThucAnNhe(array) {
     var perpage = Math.ceil(array.length / limit8);
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage8(' + i + ')"></input>';
+    }
+
+    document.querySelector('.chuyentrangThucUongTrangMieng').innerHTML = buttonsHTML;
+}
+function listpageThucAnNhe(array) {
+    var perpage = Math.ceil(array.length / limit7);
+    var buttonsHTML = '';
+
+    for (var i = 1; i <= perpage; i++) {
+        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage7(' + i + ')"></input>';
     }
 
     document.querySelector('.chuyentrangThucAnNhe').innerHTML = buttonsHTML;

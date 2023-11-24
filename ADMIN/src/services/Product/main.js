@@ -32,6 +32,8 @@ function renderProduct(data){
     var burgercommiy = "" ; 
     var thucannhe = "" ; 
     var thucuong_trangmieng = "" ; 
+    var percentUuDai = 0 , percentMonMoi = 0 , percentCombo1Nguoi = 0 , percentComboNhom = 0 , 
+    percentGaRanGaQuay = 0 , percentBurgerComMiY = 0 , percentThucAnNhe = 0 ,percentThucUongTrangMieng = 0; 
     for(var i = data.length - 1 ; i >= 0 ; i--){
         var ProductTemporary = data[i] ; 
         if(ProductTemporary.item === "UuDai"){
@@ -55,6 +57,7 @@ function renderProduct(data){
             </td>
         </tr>
         `
+        percentUuDai++
         }
         if(ProductTemporary.item === "MonMoi"){
             monmoi += `<tr style="font-size:1.4rem ;">
@@ -77,6 +80,7 @@ function renderProduct(data){
             </td>
         </tr>
         `
+        percentMonMoi++
         }
         if(ProductTemporary.item === "Combo1Nguoi"){
             combo1nguoi += `<tr style="font-size:1.4rem ;">
@@ -99,6 +103,7 @@ function renderProduct(data){
             </td>
         </tr>
         `
+        percentCombo1Nguoi++
         }
         if(ProductTemporary.item === "ComboNhom"){
             combonhom += `<tr style="font-size:1.4rem ;">
@@ -121,6 +126,7 @@ function renderProduct(data){
             </td>
         </tr>
         `
+        percentComboNhom++
         }
         if(ProductTemporary.item === "GaRanGaQuay"){
             garangaquay += `<tr style="font-size:1.4rem ;">
@@ -143,6 +149,7 @@ function renderProduct(data){
             </td>
         </tr>
         `
+        percentGaRanGaQuay++
         }
         if(ProductTemporary.item === "BurgerComMiY"){
             burgercommiy += `<tr style="font-size:1.4rem ;">
@@ -165,28 +172,7 @@ function renderProduct(data){
             </td>
         </tr>
         `
-        }
-        if(ProductTemporary.item === "ThucUong_TrangMieng"){
-            thucuong_trangmieng += `<tr style="font-size:1.4rem ;">
-            <td>${ProductTemporary.IDproduct}</td>
-            <td>${ProductTemporary.name}</td>
-            <td>
-                <img src="${ProductTemporary.img}" alt="">
-            </td>
-            <td>${ProductTemporary.gia}đ</td>
-            <td>${ProductTemporary.detail}</td>
-            <td>
-                <button class="border-0 btn-danger"
-                    style="cursor: pointer;" onclick = deleteProduct(${ProductTemporary.id})>Delete</button>
-                <button class="border-0 ml-5 p-2 " style="cursor: pointer;"  onclick = editProduct(${ProductTemporary.id})><svg
-                        xmlns="http://www.w3.org/2000/svg" height="1em"
-                        viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                        <path
-                            d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
-                    </svg></button>
-            </td>
-        </tr>
-        `
+        percentBurgerComMiY++
         }
         if(ProductTemporary.item === "ThucAnNhe"){
             thucannhe += `<tr style="font-size:1.4rem ;">
@@ -209,7 +195,32 @@ function renderProduct(data){
             </td>
         </tr>
         `
+        percentThucAnNhe++;
         }
+        if(ProductTemporary.item === "ThucUong_TrangMieng"){
+            thucuong_trangmieng += `<tr style="font-size:1.4rem ;">
+            <td>${ProductTemporary.IDproduct}</td>
+            <td>${ProductTemporary.name}</td>
+            <td>
+                <img src="${ProductTemporary.img}" alt="">
+            </td>
+            <td>${ProductTemporary.gia}đ</td>
+            <td>${ProductTemporary.detail}</td>
+            <td>
+                <button class="border-0 btn-danger"
+                    style="cursor: pointer;" onclick = deleteProduct(${ProductTemporary.id})>Delete</button>
+                <button class="border-0 ml-5 p-2 " style="cursor: pointer;"  onclick = editProduct(${ProductTemporary.id})><svg
+                        xmlns="http://www.w3.org/2000/svg" height="1em"
+                        viewBox="0 0 512 512"><!--! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
+                        <path
+                            d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
+                    </svg></button>
+            </td>
+        </tr>
+        `
+        percentThucUongTrangMieng++
+        }
+      
    
     }
     // console.log ( uudai , monmoi , combo1nguoi , combonhom , burgercommiy , thucannhe , thucuong_trangmieng)
@@ -221,6 +232,70 @@ function renderProduct(data){
     tableBurgerComMiY.innerHTML = burgercommiy ; 
     tableThucAnNhe.innerHTML = thucannhe ; 
     tableThucUong_TrangMieng.innerHTML = thucuong_trangmieng ; 
+
+    document.querySelector('.thongkesanpham').innerHTML = `
+    <div class = "col-xl-2 col-md-4">
+        <div class="statisticalProduct progress" style="--i: ${(percentUuDai / data.length * 100 ).toFixed(2)} ; --clr:red">
+        <h3>${(percentUuDai / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+        <h4>Ưu Đãi</h4>
+        </div>
+        <h3 class= "thongbao">${percentUuDai} sản phẩm thuộc Ưu Đãi</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentMonMoi / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentMonMoi / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+        <h4>Món Mới</h4>
+    </div>
+    <h3 class= "thongbao">${percentMonMoi} sản phẩm thuộc Món Mới</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentCombo1Nguoi / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentCombo1Nguoi / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+    <h4>Combo 1 Người</h4>
+    </div>
+    <h3 class= "thongbao">${percentCombo1Nguoi} sản phẩm thuộc Combo 1 Người</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentComboNhom / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentComboNhom / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+    <h4>Combo Nhóm</h4>
+    </div>
+    <h3 class= "thongbao">${percentComboNhom} sản phẩm thuộc Combo Nhóm</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentGaRanGaQuay / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentGaRanGaQuay / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+    <h4>Gà Rán Gà Quay</h4>
+    </div>
+    <h3 class= "thongbao">${percentGaRanGaQuay} sản phẩm thuộc Gà Rán Gà Quay</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentBurgerComMiY / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentBurgerComMiY / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+    <h4>Burger - Cơm - Mì Ý</h4>
+    </div>
+    <h3 class= "thongbao">${percentBurgerComMiY} sản phẩm thuộc Burger - Cơm - Mì Ý</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentThucAnNhe / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentThucAnNhe / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+    <h4>Thức Ăn Nhẹ</h4>
+    </div>
+    <h3 class= "thongbao">${percentThucAnNhe} sản phẩm thuộc Thức Ăn Nhẹ</h3>
+    </div>
+    <div class = "col-xl-2 col-md-4">
+    <div class="statisticalProduct progress" style="--i:${(percentThucUongTrangMieng / data.length * 100 ).toFixed(2)}  ; --clr:red">
+        <h3>${(percentThucUongTrangMieng / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+    <h4>Thức Uống & Tráng Miệng</h4>
+    </div>
+    <h3 class= "thongbao">${percentThucUongTrangMieng} sản phẩm thuộc Thức Uống & Tráng Miệng</h3>
+    </div>
+    `
+    var progressBars = document.querySelectorAll('.progress');
+    progressBars.forEach((progress, index) => {
+        var percent = progress.style.getPropertyValue('--i');
+        progress.style.background = `conic-gradient(from 0turn, var(--clr) ${percent}% , #444 0)`;
+    });
 }
 
 function deleteProduct(id) {

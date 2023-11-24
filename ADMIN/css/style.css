@@ -260,3 +260,77 @@ ul ul a {
 #resetFormOrder span{
     font-size: 1.2rem;
 }
+.thongkedonhang,
+.thongketaikhoan,
+.thongkesanpham {
+    position: relative;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 20px; /* Đổi giá trị khoảng cách giữa các thanh tiến tròn */
+    font-family: 'Poppins' , sans-serif;
+    box-sizing: border-box;
+}
+
+.progress {
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    color: #fff;
+    margin: 10px; /* Thêm margin để tạo khoảng cách giữa các thanh tiến tròn */
+}
+
+.progress h3 {
+    position: absolute;
+    top: 48%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 2.5em;
+    z-index: 1;
+    font-weight: 500;
+}
+
+.progress h3 span {
+    font-weight: 400;
+}
+
+.progress h4 {
+    position: absolute;
+    bottom: 35px; /* Đưa label lên trên một chút để cách lề dưới */
+    left: 50%;
+    transform: translateX(-50%);
+    z-index: 1;
+    font-weight: 500;
+    color: var(--clr);
+    text-transform: uppercase;
+     font-size: 14px;
+}
+
+.progress::after {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border-radius: 50%;
+    background: #222;
+}
+
+.progress::before {
+    content: "";
+    display: block;
+    height: 100%;
+    margin-left: 50%;
+    transform-origin: left;
+    border-radius: 0 100% 100% 0/50%;
+}
+
+.progress::before {
+    background: var(--clr);
+    transform: rotate(calc(((var(--i) - 50) * 0.01turn )));
+}
+
+.progress.less::before {
+    background: #444;
+    transform: rotate(calc(((var(--i) - 0) * 0.01turn )));
+}

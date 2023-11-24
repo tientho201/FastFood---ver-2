@@ -98,3 +98,14 @@ function open_productnotify(){
     })
     document.querySelector('.productnotify').classList.remove('hide')
 }
+
+function open_productThongKe(){
+    document.querySelectorAll('.menu-item').forEach((value) => {
+        value.classList.remove('active')
+    })
+    document.querySelector('.menu-item__thongke').classList.add('active')
+    document.querySelectorAll('.container-fluid__total').forEach((value)=>{
+        value.classList.add('hide')
+    })
+    document.querySelector('.productthongke').classList.remove('hide')
+}

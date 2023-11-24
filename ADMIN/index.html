@@ -55,6 +55,9 @@
                     <li>
                         <a class="menu-item__notify menu-item" onclick="open_productnotify()">Danh Sách Thông Báo</a>
                     </li>
+                    <li>
+                        <a class="menu-item__thongke menu-item" onclick="open_productThongKe()">Thống Kê</a>
+                    </li>
                 </ul>
             </nav>
             <!-- Page Content  -->
@@ -129,7 +132,7 @@
                                                 <button class="border-0 ml-5 p-2 " style="cursor: pointer;"><svg
                                                         xmlns="http://www.w3.org/2000/svg" height="1em"
                                                         viewBox="0 0 512 512">! Font Awesome Free 6.4.2 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license (Commercial License) Copyright 2023 Fonticons, Inc. -->
-                                                        <!-- <path
+                                        <!-- <path
                                                             d="M362.7 19.3L314.3 67.7 444.3 197.7l48.4-48.4c25-25 25-65.5 0-90.5L453.3 19.3c-25-25-65.5-25-90.5 0zm-71 71L58.6 323.5c-10.4 10.4-18 23.3-22.2 37.4L1 481.2C-1.5 489.7 .8 498.8 7 505s15.3 8.5 23.7 6.1l120.3-35.4c14.1-4.2 27-11.8 37.4-22.2L421.7 220.3 291.7 90.3z" />
                                                     </svg></button>
                                             </td> -->
@@ -164,7 +167,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachMonMoi" class="tableDanhSach">
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -195,7 +197,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachCombo1Nguoi" class="tableDanhSach">
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -226,7 +227,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachComboNhom" class="tableDanhSach">
-                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -257,7 +257,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachGaRanGaQuay" class="tableDanhSach">
-                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -288,7 +287,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachBurgerComMiY" class="tableDanhSach">
-                                       
                                     </tbody>
                                 </table>
                             </div>
@@ -319,7 +317,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachThucAnNhe" class="tableDanhSach">
-                                        
                                     </tbody>
                                 </table>
                             </div>
@@ -350,7 +347,6 @@
                                         </tr>
                                     </thead>
                                     <tbody id="tableDanhSachThucUong_TrangMieng" class="tableDanhSach">
-                                    
                                     </tbody>
                                 </table>
                             </div>
@@ -425,7 +421,8 @@
                         <div class="card-header myCardHeader ">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Đơn Hàng</h3>
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Đơn
+                                        Hàng</h3>
                                 </div>
                             </div>
                         </div>
@@ -439,8 +436,7 @@
                                         <th class="nowrap ">Địa Chỉ</th>
                                         <th class="nowrap">Số Điện Thoại</th>
                                         <th class="nowrap">Tổng Tiền</th>
-                                        <th class="nowrap" >Thời Gian</th>%
-                                        <th class="nowrap" >Trạng Thái</th>
+                                        <th class="nowrap">Thời Gian</th>% <th class="nowrap">Trạng Thái</th>
                                         <th>
                                             <em class="fa fa-cog"></em>
                                             <br> Action
@@ -475,7 +471,8 @@
                         <div class="card-header myCardHeader ">
                             <div class="row">
                                 <div class="col-md-6">
-                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Thông Báo</h3>
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Thông
+                                        Báo</h3>
                                 </div>
                                 <div class="col-md-6 text-right">
                                     <button class="btn btn-primary font-weight-bold" id="btnThemNotify"
@@ -519,6 +516,75 @@
                         </div>
                     </div>
                 </div>
+                <!-- Thống kê -->
+                <div class="container-fluid container-fluid__total productthongke hide">
+                    <div class="card text-center ">
+                        <!-- Header -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-primary font-weight-bold " style="font-size: 3rem;">Thống
+                                        Kê</h3>
+                                </div>
+                            </div>
+                        </div>
+                        <!-- Body -->
+                        <!-- Thống kê sản phẩm -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-dark font-weight-bold " style="font-size: 2rem;">Thống Kê
+                                        Đơn Hàng</h3>
+                                </div>
+                            </div>
+                            <div class="thongkedonhang">
+                                <!-- <div>
+                                    <div class="statisticalProduct progress" style="--i: ${(percentChapNhan / data.length * 100 ).toFixed(2)} ; --clr:#6F6EFF">
+                                    <h3>$${(percentChapNhan / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+                                    <h4>Đơn đã chấp nhận</h4>
+                                    </div>
+                                    <h3 class= "thongbao">${percentChapNhan} đơn đã chấp nhận</h3>
+                                </div>
+                                <div>
+                                <div class="statisticalProduct progress" style="--i:${(percentHuyDonHang / data.length * 100 ).toFixed(2)}  ; --clr:green">
+                                    <h3>${(percentHuyDonHang / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+                                    <h4>Đơn đã hủy</h4>
+                                </div>
+                                <h3 class= "thongbao">${percentHuyDonHang} đơn đã hủy</h3>
+                                </div>
+                                <div>
+                                <div class="statisticalProduct progress" style="--i:${(percentCho / data.length * 100 ).toFixed(2)}  ; --clr:red">
+                                    <h3>${(percentCho / data.length * 100 ).toFixed(2)} <span>%</span></h3>
+                                <h4>Đơn đang chờ</h4>
+                                </div>
+                                <h3 class= "thongbao">${percentCho} đơn đang chờ xác nhận</h3>
+                                </div> -->
+                            </div>
+                        </div>
+                        <!-- Thống kê tài khoản -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-dark font-weight-bold " style="font-size: 2rem;">Thống Kê
+                                        Tài Khoản</h3>
+                                </div>
+                            </div>
+                            <div class="thongketaikhoan">
+                            </div>
+                        </div>
+                        <!-- thống kê sản phẩm -->
+                        <div class="card-header myCardHeader ">
+                            <div class="row">
+                                <div class="col-md-6">
+                                    <h3 class="text-left text-dark font-weight-bold " style="font-size: 2rem;">Thống Kê
+                                        Sản Phẩm</h3>
+                                </div>
+                            </div>
+                            <div class="thongkesanpham row">
+                            </div>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <!-- The Modal -->
@@ -531,7 +597,7 @@
                     </header>
                     <!-- Modal body -->
                     <div class="modal-body">
-                        <form role="form" id="resetFormProduct" >
+                        <form role="form" id="resetFormProduct">
                             <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
@@ -599,13 +665,13 @@
                                 </div>
                                 <span class="sp-thongbao" id="tbInfoProduct"></span>
                             </div>
-                        
                         </form>
                     </div>
                     <!-- Modal footer -->
                     <div class="modal-footer" id="modal-footer">
                         <div class="btnAddUpdateProduct">
-                            <button id="btnAddProduct" type="button" class="btn btn-success" onclick="addProduct()">Thêm Sản Phẩm</button>
+                            <button id="btnAddProduct" type="button" class="btn btn-success" onclick="addProduct()">Thêm
+                                Sản Phẩm</button>
                         </div>
                         <button id="btnDong" type="button" class="btn btn-danger btnDong-product"
                             data-dismiss="modal">Đóng</button>
@@ -775,7 +841,7 @@
                                 <div class="input-group">
                                     <h3>Tên Sản Phẩm</h3>
                                 </div>
-                                <span id="infoNameProduct">  </span>
+                                <span id="infoNameProduct"> </span>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -866,6 +932,15 @@
         <script src="./js/btnAddProduct.js"></script>
         <!-- khai báo -->
         <script src="./js/declare.js"></script>
+        <!-- <script>
+            const progressBars = document.querySelectorAll('.progress');
+
+            // Duyệt qua từng phần tử và đặt gradient cho mỗi phần tử
+            progressBars.forEach((progress, index) => {
+                const percent = progress.style.getPropertyValue('--i');
+                progress.style.background = `conic-gradient(from 0turn, var(--clr) ${percent}% , #444 0)`;
+            });
+        </script> -->
     </body>
 
 </html>
