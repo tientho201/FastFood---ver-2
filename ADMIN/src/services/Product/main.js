@@ -327,7 +327,7 @@ function infoEditProduct(data){
     document.getElementById('typeModalProduct').value =  data.item ; 
     document.getElementById('idProduct').value  = data.IDproduct ; 
     document.getElementById('nameProduct').value = data.name ; 
-    document.getElementById('imgProduct').value = data.img ; 
+    document.querySelector('.img__product').src = data.img ; 
     document.getElementById('priceProduct').value = data.gia ; 
     document.getElementById('infoProduct').value = data.detail ; 
     document.querySelector('.modal-product').style.display = 'block';
@@ -361,14 +361,14 @@ function getValueInputProduct(){
     var item = document.getElementById('typeModalProduct').value ; 
     var IDproduct = document.getElementById('idProduct').value ; 
     var name = document.getElementById('nameProduct').value ; 
-    var img = document.getElementById('imgProduct').value ; 
+    var img = document.querySelector('.img__product').src ; 
     var price = document.getElementById('priceProduct').value ; 
     var detail = document.getElementById('infoProduct').value ; 
     var isValue = true ; 
 
     isValue &= ktRong(IDproduct , "tbIDProduct" , "Vui lòng không được bỏ trống" )
     isValue &= ktRong(name , "tbNameProduct" , "Vui lòng không được bỏ trống" )
-    isValue &= ktRong(img , "tbimgProduct" , "Vui lòng không được bỏ trống" )
+    // isValue &= ktRong(img , "tbimgProduct" , "Vui lòng không được bỏ trống" )
     isValue &= ktRong(price , "tbPriceProduct" , "Vui lòng không được bỏ trống" )
     isValue &= ktRong(detail , "tbInfoProduct" , "Vui lòng không được bỏ trống" )
 

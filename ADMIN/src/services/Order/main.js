@@ -15,7 +15,6 @@ getListOrder();
 function renderOrder(data) {
     var tableOrder = document.querySelector('#tableDanhSachOrder');
     var s = '' , percentHuyDonHang = 0  , percentChapNhan = 0 , percentCho = 0 ; 
-    var saveMoneyAccept = 0  , saveMoney = 0 ; 
     for (var i = 0; i < data.length; i++) {
         var tempOrder = data[i];
         if (tempOrder.trangthai == 'Hủy Đơn Hàng') {
@@ -34,8 +33,6 @@ function renderOrder(data) {
             </tr>
             `
             percentHuyDonHang++ ; 
-            saveMoney += tempOrder.totalAmount
-            console.log(saveMoney)
 
         }else if (tempOrder.trangthai == 'Chấp Nhận') {
             s += `
@@ -53,9 +50,7 @@ function renderOrder(data) {
             </tr>
             `
             percentChapNhan++;
-            saveMoneyAccept += tempOrder.totalAmount
-            saveMoney += tempOrder.totalAmount
-            console.log(saveMoney)
+
         } else {
             s += `
             <tr class="h5" style="font-size:1.4rem ;">
@@ -73,8 +68,6 @@ function renderOrder(data) {
             </tr>
             `
             percentCho++;
-            saveMoney += tempOrder.totalAmount
-            console.log(saveMoney)
         }
 
     }
@@ -99,13 +92,6 @@ function renderOrder(data) {
     <h4>Đơn đang chờ</h4>
     </div>
     <h3 class= "thongbao">${percentCho} đơn đang chờ xác nhận</h3>
-    </div>
-    <div>
-    <div class="statisticalProduct progress" style="--i:${(saveMoneyAccept / saveMoney * 100 ).toFixed(2)}  ; --clr:red">
-        <h3>${(saveMoneyAccept / saveMoney * 100 ).toFixed(2)} <span>%</span></h3>
-    <h4>Doanh Thu</h4>
-    </div>
-    <h3 class= "thongbao">Tiền thu về ${saveMoneyAccept}.000đ</h3>
     </div>
     `
     tableOrder.innerHTML = s;

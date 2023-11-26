@@ -44,7 +44,7 @@
                 </ul>
                 <ul class="list-unstyled components">
                     <li>
-                        <a class="menu-item__giohang menu-item active" onclick="open_giohang()">Giỏ Hàng</a>
+                        <a class="menu-item__giohang menu-item active" onclick="open_sanpham()">Sản Phẩm</a>
                     </li>
                     <li>
                         <a class="menu-item__account menu-item" onclick="open_account()">Tài Khoản</a>
@@ -635,7 +635,7 @@
                                 </div>
                                 <span class="sp-thongbao" id="tbNameProduct"></span>
                             </div>
-                            <div class="form-group">
+                            <!-- <div class="form-group">
                                 <div class="input-group">
                                     <div class="input-group-prepend">
                                         <span class="input-group-text"><i class="fa fa-user"></i></span>
@@ -644,6 +644,14 @@
                                         placeholder="Link URL Ảnh">
                                 </div>
                                 <span class="sp-thongbao" id="tbimgProduct"></span>
+                            </div> -->
+                            <div class="form-group">
+                                <h2>Upload Ảnh</h2>
+                                <img src="" class="img__product">
+                                <form action="index.html" method="post">
+                                    <input type="file" name="file" id="file" class="link__img" accept="image/*" value="">
+                                   
+                                </form>
                             </div>
                             <div class="form-group">
                                 <div class="input-group">
@@ -810,6 +818,7 @@
                 </div>
             </div>
         </div>
+        <!-- Modal đơn hàng -->
         <div class="modal fade modal-order" id="myModalOrder">
             <div class="modal-dialog">
                 <div class="modal-content">

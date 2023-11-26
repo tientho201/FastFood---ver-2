@@ -14,7 +14,14 @@ btnThemProduct.onclick = function(e){
     document.querySelector('.btnAddUpdateProduct').innerHTML = `<button id="btnAddProduct" type="button" class="btn btn-success" onclick="addProduct()">Thêm Sản Phẩm</button>`
     document.getElementById('resetFormProduct').reset();
 }
-
+const image_product = document.querySelector('.img__product');
+const input_link_img = document.querySelector('.link__img');
+input_link_img.addEventListener('change', (e) => {
+    const file = e.target.files[0];
+    if (file) {
+        image_product.src = URL.createObjectURL(file);
+    }
+})
 
 // Nút đóng mở thêm account
 const btnDongAccount = document.querySelector('.btnDong-account'); 
@@ -56,7 +63,7 @@ btnDongOrder.onclick = function(e){
 // Nút đóng Order
 
 // Menu để mở bảng hợp lí
-function open_giohang(){
+function open_sanpham(){
     document.querySelectorAll('.menu-item').forEach((value) => {
         value.classList.remove('active')
     })
