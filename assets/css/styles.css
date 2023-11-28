@@ -1008,6 +1008,7 @@ header {
     transition: all .6s;
     width: 100%;
     min-width: 100px;
+    height: 200px;
 }
 
 .product-img>img:hover {

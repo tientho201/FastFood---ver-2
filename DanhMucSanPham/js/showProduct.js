@@ -5,6 +5,9 @@ function getlistProduct() {
     promise
         .then(function (result) {
             ProductArray = result.data;
+            // document.querySelector('.navigation-nav__link--no-select').onclick = (e) => {
+            // renderProduct(ProductArray)
+            // }
             renderProduct(ProductArray);
         })
         .catch(function (error) {
@@ -271,7 +274,7 @@ function renderProduct(data) {
     for(var i = 0 ; i < arrayThucUongTrangMieng.length ; i++){
         if (i >= begin8 && i <= end8) {
             thucuongtrangmieng +=
-                `  <div class="product-item" >
+                ` <div class="product-item" >
             <a  class="product-link__sanpham" onclick = "detailProduct(${arrayThucUongTrangMieng[i].id})">
                 <div>
                     <div class="product-img">

@@ -235,7 +235,7 @@
                 <!-- BREADCRUMB -->
                 <!-- SANPHAM -->
                 <div id="sanpham">
-                    <div class="container">
+                    <div class="container ">
                         <div id="UuDai">
                             <h1 class="product-title">ƯU ĐÃI</h1>
                             <div
@@ -291,6 +291,62 @@
                                 class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucUong_TrangMieng">
                             </div>
                             <div class="chuyentrangThucUongTrangMieng chuyentrang"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="sanpham-search">
+                    <div class="container ">
+                        <div id="UuDai-search">
+                            <h1 class="product-title">ƯU ĐÃI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__UuDai-search">
+                            </div>
+                        </div>
+                        <div id="MonMoi-search">
+                            <h1 class="product-title">MÓN MỚI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__MonMoi-search">
+                            </div>
+                        </div>
+                        <div id="Combo1Nguoi-search">
+                            <h1 class="product-title">COMBO 1 NGƯỜI</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1  product-list__Combo1Nguoi-search">
+                            </div>
+                        </div>
+                        <div id="ComboNhom-search">
+                            <h1 class="product-title">COMBO NHÓM</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ComboNhom-search ">
+                            </div>
+                        </div>
+                        <div id="GaRanGaQuay-search">
+                            <h1 class="product-title">GÀ RÁN - GÀ QUAY</h1>
+                            <div
+                                class=" row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__GaRanGaQuay-search">
+                            </div>
+                        
+                        </div>
+                        <div id="BurgerComMiY-search">
+                            <h1 class="product-title">BURGER - CƠM - MÌ Ý</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__BurgerComMiY-search">
+                            </div>
+                            
+                        </div>
+                        <div id="ThucAnNhe-search">
+                            <h1 class="product-title">THỨC ĂN NHẸ</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucAnNhe-search ">
+                            </div>
+                           
+                        </div>
+                        <div id="ThucUong_TrangMieng-search">
+                            <h1 class="product-title">THỨC UỐNG & TRÁNG MIỆNG</h1>
+                            <div
+                                class="row row-cols-xl-4 row-cols-sm-2 row-cols-md-2 row-cols-lg-3 row-cols-1 product-list__ThucUong_TrangMieng-search">
+                            </div>
+                        
                         </div>
                     </div>
                 </div>
@@ -715,7 +771,6 @@
                     <!--Chi tiết sản phẩm -->
         <script> 
             var modalProduct = document.querySelector('.modalProduct')
-
             function hideModalProduct() {
                 modalProduct.classList.remove('open')
             }
@@ -731,6 +786,8 @@
                 document.querySelector('#DonHang').style.display = 'none'
                 document.querySelector('#ThongTinCaNhan').style.display = 'none'
                 document.querySelector('#GioHang').style.display = 'none'
+                document.querySelector('#sanpham').style.display = 'block'
+                document.querySelector('#sanpham-search').style.display = 'none'
             }
         </script>
         <!-- Đơn hàng -->
