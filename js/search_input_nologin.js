@@ -82,6 +82,7 @@ document.querySelector('.header-search__btn').addEventListener('click', function
     document.querySelector('.header__search-history').style.display = 'none'
     document.querySelector('#sanpham').style.display = 'none'
     document.querySelector('#sanpham-search').style.display = 'block'
+    document.querySelector('#breadcrumb').style.display = 'none'
     var promise = apiProduct.fetchData();
     promise
         .then(function (result) {
