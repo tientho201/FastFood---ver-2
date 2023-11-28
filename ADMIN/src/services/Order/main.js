@@ -73,7 +73,7 @@ function renderOrder(data) {
     }
     document.querySelector('.thongkedonhang').innerHTML = `
     <div >
-        <div class="statisticalProduct progress" style="--i: ${(percentChapNhan / data.length * 100 ).toFixed(2)} ; --clr:red">
+        <div class="statisticalProduct progress" style="--i: ${(percentChapNhan / data.length * 100 ).toFixed(2)} ; --clr:green">
         <h3>${(percentChapNhan / data.length * 100 ).toFixed(2)} <span>%</span></h3>
         <h4>Đơn đặt thành công</h4>
         </div>
@@ -87,7 +87,7 @@ function renderOrder(data) {
     <h3 class= "thongbao">${percentHuyDonHang} đơn bị hủy</h3>
     </div>
     <div>
-    <div class="statisticalProduct progress" style="--i:${(percentCho / data.length * 100 ).toFixed(2)}  ; --clr:red">
+    <div class="statisticalProduct progress" style="--i:${(percentCho / data.length * 100 ).toFixed(2)}  ; --clr:purple">
         <h3>${(percentCho / data.length * 100 ).toFixed(2)} <span>%</span></h3>
     <h4>Đơn đang chờ</h4>
     </div>
@@ -98,7 +98,7 @@ function renderOrder(data) {
     var progressBars = document.querySelectorAll('.progress');
     progressBars.forEach((progress, index) => {
         var percent = progress.style.getPropertyValue('--i');
-        progress.style.background = `conic-gradient(from 0turn, var(--clr) ${percent}% , #444 0)`;
+        progress.style.background = `conic-gradient(from 0turn, var(--clr) ${percent}% , #666 0)`;
     });
 }
 

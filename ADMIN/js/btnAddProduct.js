@@ -12,6 +12,7 @@ btnThemProduct.onclick = function(e){
     document.querySelector('.modal-product ').classList.remove('fade')
     document.querySelector('#header-title-product').innerHTML = "Thêm Sản Phẩm"
     document.querySelector('.btnAddUpdateProduct').innerHTML = `<button id="btnAddProduct" type="button" class="btn btn-success" onclick="addProduct()">Thêm Sản Phẩm</button>`
+    document.querySelector('.img__product').src = ""
     document.getElementById('resetFormProduct').reset();
 }
 const image_product = document.querySelector('.img__product');

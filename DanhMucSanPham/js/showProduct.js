@@ -15,21 +15,21 @@ getlistProduct();
 
 
 var thispage1 = 1;
-var limit1 = 8;
+var limit1 = 4;
 var thispage2 = 1;
-var limit2 = 8;
+var limit2 = 4;
 var thispage3 = 1;
-var limit3 = 8;
+var limit3 = 4;
 var thispage4 = 1;
-var limit4 = 8;
+var limit4 = 4;
 var thispage5 = 1;
-var limit5 = 8;
+var limit5 = 4;
 var thispage6 = 1;
-var limit6 = 8;
+var limit6 = 4;
 var thispage7 = 1;
-var limit7 = 8;
+var limit7 = 4;
 var thispage8 = 1;
-var limit8 = 8;
+var limit8 = 4;
 
 function renderProduct(data) {
     var begin1 = limit1 * (thispage1 - 1);
@@ -211,7 +211,7 @@ function renderProduct(data) {
                 <div class="product-info">
                     <div class="product-info__title">
                         <h2 class="name-product">${arrayBurgerComMiY[i].name}</h2>
-                        <h2 class="priceProduct">${arrayBurgerComMiY.gia}đ</h2>
+                        <h2 class="priceProduct">${arrayBurgerComMiY[i].gia}đ</h2>
                     </div>
                     <div class="product-info__detail">${arrayBurgerComMiY[i].detail}</div>
                 </div>

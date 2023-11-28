@@ -48,14 +48,14 @@ function RenderAccount(data) {
     }
     document.querySelector('.thongketaikhoan').innerHTML = `
     <div>
-        <div class="statisticalProduct progress" style="--i: ${(percentAdmin / data.length * 100).toFixed(2)} ; --clr:red">
+        <div class="statisticalProduct progress" style="--i: ${(percentAdmin / data.length * 100).toFixed(2)} ; --clr:yellow">
         <h3>${(percentAdmin / data.length * 100).toFixed(2)} <span>%</span></h3>
         <h4>Admin</h4>
         </div>
         <h3 class= "thongbao">${percentAdmin} tài khoản Admin</h3>
     </div>
     <div>
-        <div class="statisticalProduct progress" style="--i:${(percentUser / data.length * 100).toFixed(2)}  ; --clr:red    ">
+        <div class="statisticalProduct progress" style="--i:${(percentUser / data.length * 100).toFixed(2)}  ; --clr: #F4CE14">
         <h3>${(percentUser / data.length * 100).toFixed(2)} <span>%</span></h3>
         <h4>User</h4>
         </div>
