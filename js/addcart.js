@@ -147,18 +147,7 @@ function changeQty(id, n) {
     updateUI(cart.listProduct)
     renderCartItem(cart);
 }
-function setCartLocalStoregrade(data) {
-    localStorage.setItem('cart', JSON.stringify(data));
-}
 
-function getCartLocalStoregrade() {
-    if (localStorage.getItem('cart')) {
-        cart.listProduct = JSON.parse(localStorage.getItem('cart'));
-        updateUI(cart.listProduct)
-        renderCartItem(cart);
-    }
-}
-getCartLocalStoregrade();
 
 function notiAlert(position, icon, title, timer) {
     Swal.fire({
@@ -187,13 +176,13 @@ function updateUI(a) {
 function render(productid, amount) {
     var amountElement = document.getElementById('nhapgiatri_' + productid);
     amountElement.value = amount;
-    var productIndex = cart.listProduct.findIndex(item => item.product.id === productid);
-
+    var productIndex = cart.listProduct.findIndex(item => item.product.id == productid);
     // Nếu sản phẩm được tìm thấy, cập nhật giá trị quantity
     if (productIndex !== -1) {
         cart.listProduct[productIndex].quantity = amount;
     }
-
+    setCartLocalStoregrade(cart.listProduct)
+    renderCartItem(cart);
 }
 function nhapgiatri(productid) {
     var pattern = /^[0-9]+$/;
@@ -203,7 +192,6 @@ function nhapgiatri(productid) {
     if (!pattern.test(amount)) {
         amount = '1';
     }
-
     render(productid, amount);
     tinhTongTien();
 }
@@ -213,6 +201,7 @@ function tangsl(productid) {
     amount++;
     render(productid, amount);
     tinhTongTien();
+    
 }
 
 function giamsl(productid) {
@@ -287,31 +276,33 @@ function xoasp(productid) {
     }
     // Update lại tổng tiền và hiển thị
     tinhTongTien();
+    document.querySelector('.chonall').checked = false;
 
     // Cập nhật local storage sau khi sửa đổi giỏ hàng
     setCartLocalStoregrade(cart.listProduct);
 
     // Hiển thị lại giỏ hàng sau khi cập nhật
     renderCartItem(cart);
-    
+    updateUI(cart.listProduct)
 }
 
 
 function deleteall() {
-    // Xóa toàn bộ mảng a
-    a = [];
-
-    // Uncheck all checkboxes
-    cart.listProduct.forEach(function (value) {
-        var checkboxElement = document.getElementById('checkbox_' + value.productid);
-        if (checkboxElement) {
-            checkboxElement.checked = false;
+    // Loop through the array and delete selected products
+    a = [] ; j = 0 
+    for (var i = 0; i < cart.listProduct.length; i++) {
+        var checkboxElement = document.getElementById('checkbox_' + cart.listProduct[i].product.id);
+        
+        // Check if the checkbox is checked
+        if (checkboxElement && checkboxElement.checked) {
+            // Delete the product using xoasp function
+            a[j] =  cart.listProduct[i].product.id 
+            j++;
         }
-    });
-
-    // Xóa toàn bộ nội dung trong giao diện
-    document.querySelector('.content').innerHTML = '';
-
+    }
+    for(var  i = 0 ; i <= a.length ; i++){
+        xoasp(a[i]);
+    }
     // Cập nhật tổng tiền
     tinhTongTien();
 
@@ -319,8 +310,9 @@ function deleteall() {
     if (chonAllCheckbox) {
         chonAllCheckbox.checked = false;
     }
-    cart.listProduct = [];
+    // cart.listProduct = []
     setCartLocalStoregrade(cart.listProduct);
+    // updateUI(cart.listProduct)
     renderCartItem(cart)
 }
 
@@ -438,3 +430,17 @@ function NotiAlert(icon, title, timer) {
         timer: timer,
     });
 }
+function setCartLocalStoregrade(data) {
+    console.log('Updating local storage with data:', data);
+    localStorage.setItem('cart', JSON.stringify(data));
+    console.log('Local storage updated successfully.');
+}
+
+function getCartLocalStoregrade() {
+    if (localStorage.getItem('cart')) {
+        cart.listProduct = JSON.parse(localStorage.getItem('cart'));
+        updateUI(cart.listProduct)
+        renderCartItem(cart);
+    }
+}
+getCartLocalStoregrade();

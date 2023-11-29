@@ -5,6 +5,10 @@ const btnDongProduct = document.querySelector('.btnDong-product');
 btnDongProduct.onclick = function(e){
     document.querySelector('.modal-product ').classList.add('fade')
     document.querySelector('.modal-product ').style.display = 'none'
+    document.getElementById('tbIDProduct').innerHTML = ""
+    document.getElementById('tbNameProduct').innerHTML = ""
+    document.getElementById('tbPriceProduct').innerHTML = ""
+    document.getElementById('tbInfoProduct').innerHTML = ""
 }
 const btnThemProduct = document.querySelector('#btnThemProduct'); 
 btnThemProduct.onclick = function(e){
@@ -13,6 +17,7 @@ btnThemProduct.onclick = function(e){
     document.querySelector('#header-title-product').innerHTML = "Thêm Sản Phẩm"
     document.querySelector('.btnAddUpdateProduct').innerHTML = `<button id="btnAddProduct" type="button" class="btn btn-success" onclick="addProduct()">Thêm Sản Phẩm</button>`
     document.querySelector('.img__product').src = ""
+    document.querySelector('.img__product').style.height = '0px'
     document.getElementById('resetFormProduct').reset();
 }
 const image_product = document.querySelector('.img__product');
@@ -22,6 +27,7 @@ input_link_img.addEventListener('change', (e) => {
     if (file) {
         image_product.src = URL.createObjectURL(file);
     }
+    document.querySelector('.img__product').style.height = '300px'
 })
 
 // Nút đóng mở thêm account
@@ -29,6 +35,10 @@ const btnDongAccount = document.querySelector('.btnDong-account');
 btnDongAccount.onclick = function(e){
     document.querySelector('.modal-account ').classList.add('fade')
     document.querySelector('.modal-account ').style.display = 'none'
+    document.getElementById('tbNameAccount').innerHTML = ""
+    document.getElementById('tbEmailAccount').innerHTML = ""
+    document.getElementById('tbPasswordAccount').innerHTML = ""
+    document.getElementById('tbPassword_confirmationAccount').innerHTML = ""
 }
 const btnThemAccount = document.querySelector('#btnThemAccount'); 
 btnThemAccount.onclick = function(e){

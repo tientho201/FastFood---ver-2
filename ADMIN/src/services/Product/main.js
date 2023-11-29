@@ -334,12 +334,14 @@ function infoEditProduct(data){
     document.querySelector('.modal-product').classList.remove('fade');
     document.getElementById('header-title-product').innerHTML = "Sửa Tài Khoản";
     document.querySelector('.btnAddUpdateProduct').innerHTML = `<button id="btnAddProduct" type="button" class="btn btn-success" onclick="updateProduct(${data.id})">Cập Nhật Sản Phẩm</button>`
+    document.querySelector('.img__product').style.height = '300px'
 }
 function editProduct(id){
     var promise  = apiProduct.getProduct(id) ; 
     promise 
         .then(function(result){
             infoEditProduct(result.data)
+
         })
         .catch(function(error){
             console.log(error) ; 
@@ -365,13 +367,13 @@ function getValueInputProduct(){
     var price = document.getElementById('priceProduct').value ; 
     var detail = document.getElementById('infoProduct').value ; 
     var isValue = true ; 
-
+   
     isValue &= ktRong(IDproduct , "tbIDProduct" , "Vui lòng không được bỏ trống" )
     isValue &= ktRong(name , "tbNameProduct" , "Vui lòng không được bỏ trống" )
-    // isValue &= ktRong(img , "tbimgProduct" , "Vui lòng không được bỏ trống" )
     isValue &= ktRong(price , "tbPriceProduct" , "Vui lòng không được bỏ trống" )
     isValue &= ktRong(detail , "tbInfoProduct" , "Vui lòng không được bỏ trống" )
-
+    isValue &= ktRong(img , "tbimgProduct" , "Vui lòng không được bỏ trống" )
+    
     if (!isValue){
         return null ; 
     }
@@ -383,6 +385,7 @@ function getValueInputProduct(){
         detail : detail , 
         item : item 
     }
+    console.log(img)
     return InfoValueProduct;
 }
 
@@ -402,6 +405,8 @@ function addProduct(){
         .then(function(data){
             getlistProduct() ; 
             NotiAlert("success", "Thêm thành công", 1500);
+            document.querySelector('.modal-product').classList.add('fade')
+            document.querySelector('.modal-product ').style.display = 'none'
         })
         .catch(function(error){
             console,log(error) ; 
@@ -420,11 +425,13 @@ function updateProduct(id){
             InfoProduct.detail , 
             InfoProduct.item 
         );
-        var promise = apiProduct.editProduct(id , InfoProduct) ; 
+        var promise = apiProduct.editProduct(id , product) ; 
         promise
             .then(function(){
                 getlistProduct()
                 NotiAlert("success", "Thành công", 1500);
+                document.querySelector('.modal-product').classList.add('fade')
+                document.querySelector('.modal-product ').style.display = 'none'
             })
             .catch(function(error){
                 console.log(error);

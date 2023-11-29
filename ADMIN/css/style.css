@@ -248,11 +248,13 @@ ul ul a {
 .img__product{
     width: 100%;
     margin-bottom: 10px;
+    height: 300px;
 }
 .tableDanhSach img {
     display: block;
-    width:30%;
+    width: 101px;
     margin: 0 auto;
+    height: 82px;
 }
 .table-hover tbody tr:hover{
     background-color: #fff;
@@ -260,6 +262,13 @@ ul ul a {
 #resetFormOrder span{
     font-size: 1.2rem;
 }
+table{
+    table-layout: fixed;
+}
+
+
+
+
 .thongkedonhang,
 .thongketaikhoan,
 .thongkesanpham {

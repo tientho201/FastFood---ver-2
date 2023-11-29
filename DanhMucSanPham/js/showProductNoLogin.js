@@ -345,8 +345,8 @@ function listpageUuDai(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage1(' + i + ')"></input>';
     }
-    
-    document.querySelector('.chuyentrangUuDai').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangUuDai').innerHTML = buttonsHTML;}
 }
 function listpageMonMoi(array) {
     var perpage = Math.ceil(array.length / limit2);
@@ -355,8 +355,8 @@ function listpageMonMoi(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage2(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangMonMoi').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangMonMoi').innerHTML = buttonsHTML;}
 }
 function listpageCombo1Nguoi(array) {
     var perpage = Math.ceil(array.length / limit3);
@@ -365,8 +365,8 @@ function listpageCombo1Nguoi(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage3(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangCombo1Nguoi').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangCombo1Nguoi').innerHTML = buttonsHTML;}
 }
 function listpageComboNhom(array) {
     var perpage = Math.ceil(array.length / limit4);
@@ -375,8 +375,8 @@ function listpageComboNhom(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage4(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangComboNhom').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangComboNhom').innerHTML = buttonsHTML;}
 }
 function listpageBurgerComMiY(array) {
     var perpage = Math.ceil(array.length / limit5);
@@ -385,8 +385,8 @@ function listpageBurgerComMiY(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage5(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangBurgerComMiY').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangBurgerComMiY').innerHTML = buttonsHTML;}
 }
 function listpageGaRanGaQuay(array) {
     var perpage = Math.ceil(array.length / limit6);
@@ -395,8 +395,8 @@ function listpageGaRanGaQuay(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage6(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangGaRanGaQuay').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangGaRanGaQuay').innerHTML = buttonsHTML;}
 }
 function listpageThucUongTrangMieng(array) {
     var perpage = Math.ceil(array.length / limit8);
@@ -405,8 +405,8 @@ function listpageThucUongTrangMieng(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage8(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangThucUongTrangMieng').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangThucUongTrangMieng').innerHTML = buttonsHTML;}
 }
 function listpageThucAnNhe(array) {
     var perpage = Math.ceil(array.length / limit7);
@@ -415,8 +415,8 @@ function listpageThucAnNhe(array) {
     for (var i = 1; i <= perpage; i++) {
         buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage7(' + i + ')"></input>';
     }
-
-    document.querySelector('.chuyentrangThucAnNhe').innerHTML = buttonsHTML;
+    if(perpage != 1){
+    document.querySelector('.chuyentrangThucAnNhe').innerHTML = buttonsHTML;}
 }
 function changepage1(i) {
     thispage1 = i;

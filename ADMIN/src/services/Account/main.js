@@ -176,6 +176,8 @@ function addAccount() {
             .then(function (data) {
                 getListAccount();
                 NotiAlert("success", "Thêm thành công", 1500);
+                document.querySelector('.modal-account').classList.add('fade')
+                document.querySelector('.modal-account ').style.display = 'none'
             })
             .catch(function (error) {
                 console.log(error);
@@ -200,7 +202,8 @@ function updateAccount(id) {
             .then(function () {
                 getListAccount();
                 NotiAlert("success", "Thành công", 1500);
-
+                document.querySelector('.modal-account').classList.add('fade')
+                document.querySelector('.modal-account ').style.display = 'none'
             })
             .catch(function (error) {
                 console.log(error);
