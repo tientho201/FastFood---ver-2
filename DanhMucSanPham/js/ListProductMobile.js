@@ -7,11 +7,23 @@ function handleBreadcrumbLinks() {
             });
             this.classList.add('active');
             document.querySelector(this.getAttribute('href')).style.display = 'block';
-            this.setAttribute('herf', this.getAttribute('href') )
+            this.setAttribute('href', this.getAttribute('href') )
         };
     });
 }
-
+var productlinks = document.querySelectorAll('.product-link')
+function handleProductLinks() {
+    productlinks.forEach(function (productlink, index) {
+        productlink.onclick = function (e) {
+            productlinks.forEach(function (productlink, index) {
+                document.querySelector(productlink.getAttribute('href')).style.display = 'none';
+          
+            });
+            document.querySelector(this.getAttribute('href')).style.display = 'block';
+            this.setAttribute('href', this.getAttribute('href') )
+        };
+    });
+}
 function resetBreadcrumbs() {
     breadcrumblinks.forEach(function (breadcrumblink) {
         document.querySelector(breadcrumblink.getAttribute('href')).style.display = 'block';
@@ -21,6 +33,7 @@ function resetBreadcrumbs() {
 var mql = window.matchMedia('(max-width: 740px)');
 if (mql.matches) {
     handleBreadcrumbLinks();
+    handleProductLinks()
 }
 
 mql.addListener(function (e) {
@@ -28,54 +41,7 @@ mql.addListener(function (e) {
         resetBreadcrumbs();
     } else {
         handleBreadcrumbLinks();
-    
+        handleProductLinks()
     }
 });
-window.onload = function(){
-    breadcrumblinks.forEach(function (breadcrumblink, index) {
-        document.querySelector(breadcrumblink.getAttribute('href')).style.display = 'none';
-    })
-    if (window.location.hash === '#UuDai' ){
-        var target = document.querySelector('#UuDai');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-    if (window.location.hash === '#MonMoi' ){
-        var target = document.querySelector('#MonMoi');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-    if (window.location.hash === '#Combo1Nguoi' ){
-        var target = document.querySelector('#Combo1Nguoi');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-    if (window.location.hash === '#GaRanGaQuay' ){
-        var target = document.querySelector('#GaRanGaQuay');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-    if (window.location.hash === '#ThucAnNhe' ){
-        var target = document.querySelector('#ThucAnNhe');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-    if (window.location.hash === '#ThucUong_TrangMieng' ){
-        var target = document.querySelector('#ThucUong_TrangMieng');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-    if (window.location.hash === '#BurgerComMiY' ){
-        var target = document.querySelector('#BurgerComMiY');
-        if (target) {
-            target.style.display = 'block';
-        }
-    }
-}
 

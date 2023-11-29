@@ -162,3 +162,7 @@
 .modalProduct.open {
     display: block;
 }
+
+.now {
+    background: yellow;
+}
