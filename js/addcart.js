@@ -268,7 +268,7 @@ function xoasp(productid) {
     }
 
     // Get the parent div of the delete button
-    var deleteButtonParentDiv = document.querySelector('#checkbox_' + productid).closest('.spdachon');
+    var deleteButtonParentDiv = checkbox.closest('.spdachon');
 
     // Remove the corresponding HTML element
     if (deleteButtonParentDiv) {
@@ -300,7 +300,7 @@ function deleteall() {
             j++;
         }
     }
-    for(var  i = 0 ; i <= a.length ; i++){
+    for(var  i = 0 ; i < a.length ; i++){
         xoasp(a[i]);
     }
     // Cập nhật tổng tiền
