@@ -342,7 +342,14 @@ function listpageUuDai(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage1(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage1) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage1(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangUuDai').innerHTML = buttonsHTML;}
@@ -352,7 +359,14 @@ function listpageMonMoi(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage2(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage2) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage2(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangMonMoi').innerHTML = buttonsHTML;}
@@ -362,7 +376,14 @@ function listpageCombo1Nguoi(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage3(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage3) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage3(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangCombo1Nguoi').innerHTML = buttonsHTML;}
@@ -372,7 +393,14 @@ function listpageComboNhom(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage4(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage4) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage4(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangComboNhom').innerHTML = buttonsHTML;}
@@ -382,7 +410,14 @@ function listpageBurgerComMiY(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage5(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage5) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage5(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangBurgerComMiY').innerHTML = buttonsHTML;}
@@ -392,7 +427,14 @@ function listpageGaRanGaQuay(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage6(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage6) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage6(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangGaRanGaQuay').innerHTML = buttonsHTML;}
@@ -402,7 +444,14 @@ function listpageThucUongTrangMieng(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage8(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage8) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage8(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangThucUongTrangMieng').innerHTML = buttonsHTML;}
@@ -412,7 +461,14 @@ function listpageThucAnNhe(array) {
     var buttonsHTML = '';
 
     for (var i = 1; i <= perpage; i++) {
-        buttonsHTML += '<input type="button" class="sotrang" value="' + i + '" onclick="changepage7(' + i + ')"></input>';
+        var activeClass;
+        if (i === thispage7) {
+            activeClass = 'active-item';
+            
+        } else {
+            activeClass = '';
+        }
+        buttonsHTML += '<input type="button" class="sotrang '+ activeClass +'" value="' + i + '" onclick="changepage7(' + i + ')"></input>';
     }
     if(perpage != 1){
     document.querySelector('.chuyentrangThucAnNhe').innerHTML = buttonsHTML;}

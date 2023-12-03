@@ -76,5 +76,5 @@ html{
     border-bottom: 3px solid var(--red-bright);
 }
 .active-item{
-    background-color: var(--red-bright);
+   background: yellow;
 }
