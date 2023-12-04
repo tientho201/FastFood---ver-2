@@ -298,30 +298,46 @@ function renderProduct(data){
     });
 }
 
+// function deleteProduct(id) {
+//     Swal.fire({
+//         title: "Are you sure?",
+//         text: "Bạn có chắc xóa sản phẩm này không?",
+//         icon: "warning",
+//         showCancelButton: true,
+//         confirmButtonColor: "#3085d6",
+//         cancelButtonColor: "#d33",
+//         confirmButtonText: "Yes, delete it!"
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             var promise = apiProduct.deleteProduct(id);
+//             promise
+//                 .then(function () {
+//                     getlistProduct();
+//                     NotiAlert("error", "Xóa thành công", 2000);
+//                 })
+//                 .catch(function (error) {
+//                     console.log(error);
+//                 });
+//         } else if (result.isDenied) {
+//             Swal.fire("Thay đổi không được lưu", "", "info");
+//         }
+//     });
+// }
 function deleteProduct(id) {
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Bạn có chắc xóa sản phẩm này không?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            var promise = apiProduct.deleteProduct(id);
-            promise
-                .then(function () {
-                    getlistProduct();
-                    NotiAlert("error", "Xóa thành công", 2000);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        } else if (result.isDenied) {
-            Swal.fire("Thay đổi không được lưu", "", "info");
-        }
-    });
+    if (confirm("Bạn có chắc xóa sản phẩm này không") == true) {
+        var promise = apiProduct.deleteProduct(id);
+        promise
+            .then(function () {
+                getlistProduct();
+                // alert("Xóa thành công");
+                NotiAlert("error", "Xóa thành công", 2000);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    } else  {
+        NotiAlert("info", "Xóa không thành công", 1500);
+    }
 }
 function infoEditProduct(data){
     document.getElementById('typeModalProduct').value =  data.item ; 

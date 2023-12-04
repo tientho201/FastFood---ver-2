@@ -88,32 +88,47 @@ function infoEditAccount(data) {
 }
 
 // Xóa Account
+// function deleteAccount(id) {
+//     Swal.fire({
+//         title: "Are you sure?",
+//         text: "Bạn có chắc xóa tài khoản này không?",
+//         icon: "warning",
+//         showCancelButton: true,
+//         confirmButtonColor: "#3085d6",
+//         cancelButtonColor: "#d33",
+//         confirmButtonText: "Yes, delete it!"
+//     }).then((result) => {
+//         if (result.isConfirmed) {
+//             var promise = apiAccount.deleteAccount(id);
+//             promise
+//                 .then(function () {
+//                     getListAccount();
+//                     NotiAlert("error", "Xóa thành công", 2000);
+//                 })
+//                 .catch(function (error) {
+//                     console.log(error);
+//                 });
+//         } else if (result.isDenied) {
+//             Swal.fire("Thay đổi không được lưu", "", "info");
+//         }
+//     });
+// }
 function deleteAccount(id) {
-    Swal.fire({
-        title: "Are you sure?",
-        text: "Bạn có chắc xóa tài khoản này không?",
-        icon: "warning",
-        showCancelButton: true,
-        confirmButtonColor: "#3085d6",
-        cancelButtonColor: "#d33",
-        confirmButtonText: "Yes, delete it!"
-    }).then((result) => {
-        if (result.isConfirmed) {
-            var promise = apiAccount.deleteAccount(id);
-            promise
-                .then(function () {
-                    getListAccount();
-                    NotiAlert("error", "Xóa thành công", 2000);
-                })
-                .catch(function (error) {
-                    console.log(error);
-                });
-        } else if (result.isDenied) {
-            Swal.fire("Thay đổi không được lưu", "", "info");
-        }
-    });
+    if (confirm("Bạn có chắc xóa tài khoản này không") == true) {
+        var promise = apiProduct.deleteProduct(id);
+        promise
+            .then(function () {
+                getlistProduct();
+                // alert("Xóa thành công");
+                NotiAlert("error", "Xóa thành công", 2000);
+            })
+            .catch(function (error) {
+                console.log(error);
+            });
+    } else  {
+        NotiAlert("info", "Xóa không thành công", 1500);
+    }
 }
-
 // Sửa Account
 function editAccount(id) {
     var promise = apiAccount.getAccount(id);
