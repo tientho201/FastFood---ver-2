@@ -11,7 +11,7 @@ html {
 }
 
 .main {
-    background: url(../assets/img/logo/backgorund-gif.gif) no-repeat center / cover ;
+    /* background: url(../assets/img/logo/backgorund-gif.gif) no-repeat center / cover ; */
     min-height: 100vh;
     display: flex;
     justify-content: center;
@@ -28,6 +28,7 @@ html {
     margin: 24px;
     align-self: center;
     box-shadow: 0 2px 5px 0 rgba(51, 62, 73, 0.1);
+    box-shadow: 0 3px 3px 2px rgba(0, 0, 0, 0.5);
 }
 
 .form .heading {

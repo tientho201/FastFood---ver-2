@@ -380,7 +380,10 @@ document.querySelector('.thanhtoan').addEventListener('click', function (e) {
     if (isSubmitting) {
         return;
     }
-
+    if(cart.listProduct.length <= 0 ){
+        alert("Không có sản phẩm đã chọn")
+        return
+    }
 
     var today = new Date();
     var phone = document.querySelector('#nhapSĐT').value
